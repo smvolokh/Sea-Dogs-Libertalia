@@ -6301,6 +6301,7 @@ void LSCC_enterToPrison(string qName)
 	ChangeCharacterAddressGroup(sld, "TartarusPrisonn", "quest", "prison3");
 }
 
+
 //начать большой шторм
 void LSCC_BigStormIsBegin()
 {
@@ -6322,8 +6323,8 @@ void LSCC_BigStormIsBegin()
 			locations[i].locators_radius.reload.reload2_back = 16.0;
 			pchar.location.from_sea = "LostShipsCityy_town";
 			//второй патч ГПК
-			locations[i].models.day.charactersPatch = "LostShipsCity_patch_end";
-			locations[i].models.night.charactersPatch = "LostShipsCity_patch_end";	
+			locations[i].models.day.charactersPatch = "LostShipsCityy_patch_end";
+			locations[i].models.night.charactersPatch = "LostShipsCityy_patch_end";	
 			//погода
 			DeleteAttribute(&locations[i], "alwaysStorm");	
 			DeleteAttribute(&locations[i], "QuestlockWeather");
@@ -6346,6 +6347,7 @@ void LSCC_BigStormIsBegin()
 	SetTimerFunction("LSCC_takeStormIsland", 0, 0, 10);
 }
 
+
 void LSCC_closeLine(string qName)
 {
 	AddQuestRecord("ISS_MainLine", "69");
@@ -6361,13 +6363,14 @@ void LSCC_closeLine(string qName)
 	TakeItemFromCharacter(pchar, "keyPanama");
 
                     /// возвращаем дату
+	/*					
 	Environment.date.year = sti(qDateY);
 	Environment.date.month = sti(qDateM);
 	Environment.date.day = sti(qDateD);
 	worldMap.date.year = sti(qDateY);
 	worldMap.date.month = sti(qDateM);
 	worldMap.date.day = sti(qDateD);
-
+	*/
 	//проверим наличие займа у банкира ГПК
 	sld = characterFromId("LSCC_Usurer");
 	if (CheckAttribute(sld, "quest.loan.qtyMoney") && sti(sld.quest.loan.qtyMoney) > 0)
@@ -12786,7 +12789,7 @@ void GothicApostatesAPS_Jamaica(string qName)
 		
 		case 6:
 			Ship1 = SHIP_NAVIO;
-			Ship3 = SHIP_GALEON_H;
+			Ship3 = SHIP_HEAVYGALEON;
 			Cannon1 = CANNON_TYPE_CANNON_LBS24;
 			Cannon2 = CANNON_TYPE_CULVERINE_LBS18;
 		break;

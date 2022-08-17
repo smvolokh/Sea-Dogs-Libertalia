@@ -41,24 +41,25 @@ void GoldFleet()
     GoldCapNum 	= nfreg + ngal;
 	int capHasGold = drand(GoldCapNum - 1) + 1;
 	int iSpace;
-
+	
     for(int k = 1; k <= GoldCapNum ; k++)
 	{
 		sName = GenerateRandomNameToShip(SPAIN); 	
 		sld = GetCharacter(NPC_GenerateCharacter("GoldCap_"+k, "off_spa_" +(rand(4) + 1), "man", "man", 5, SPAIN, 31, true, "officer"));
+		
 		if(rand(1) == 0) 
 		{
-			FantomMakeCoolSailor(sld, SHIP_GALEON_H,  sName, CANNON_TYPE_CANNON_LBS32, 100, 100, 100);
+			FantomMakeCoolSailor(sld, SHIP_HEAVYGALEON, sName, CANNON_TYPE_CANNON_LBS32, 100, 100, 100);
 			sld.Ship.Mode = "trade";
 			SetCaptanModelByEncType(sld, "trade");
-		}		
+		}	
 		else
 		{	
 			FantomMakeCoolSailor(sld, SHIP_FRIGATE_H, sName, CANNON_TYPE_CANNON_LBS32, 100, 100, 100);
 			sld.GenQuest.CrewGuardMode  = true;
 			sld.Ship.Mode = "guard";
 			SetCaptanModelByEncType(sld, "war");
-		}	
+		}
 		FantomMakeCoolFighter(sld, 45, 100, 100, RandPhraseSimple("blade_12","blade_14"), RandPhraseSimple("pistol6","pistol5"), "bullet", 100);
 		TakeNItems(sld, "potion2", 8);
 		TakeNItems(sld, "potion3", 5); 
@@ -70,7 +71,7 @@ void GoldFleet()
 		ChangeCrewExp(sld, "Cannoners", 100);
 		ChangeCrewExp(sld, "Soldiers",  100); 
 		LAi_SetHP(sld, 100 + makeint(pchar.rank) * 2, 100 + makeint(pchar.rank) * 2);	
-	
+		
 		if(k == capHasGold)
 		{
             iSpace = GetCharacterFreeSpace(sld, GOOD_GOLD);
@@ -91,7 +92,9 @@ void GoldFleet()
 	    sld.dialog.currentnode = "GoldSquadron";
 	    sld.DeckDialogNode = "GoldSquadron";
 		Group_AddCharacter(sGroup, sld.id);
-	}	
+		
+	}
+	
     chref.AlwaysEnemy = true;
     chref.DontRansackCaptain = true; //квестовые не сдаются
 	chref.mapEnc.type = "trade";
