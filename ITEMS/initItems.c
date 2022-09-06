@@ -2361,7 +2361,23 @@ int InitItems()
 	itm.useLocation = "Templee_8_1";
 	itm.useLocator = "button01";
 	itm.ItemType = "QUESTITEMS";
-	n++; 
+	n++;
+	
+	makeref(itm,Items[n]);// Амулет Тлалока
+	itm.id = "Totem_0080";
+	itm.name = "itmname_Totem_0080";
+	itm.describe = "itmdescr_Totem_0080";
+	itm.folder = "items";
+	itm.model = "Totem8";
+	itm.picIndex = 4;
+	itm.picTexture = "ITEMS_AZTEC";
+	itm.shown = false;
+	itm.startLocation = "";
+	itm.startLocator = "";
+	itm.price = 0;
+	itm.Weight = 1.1;
+      itm.ItemType = "QUESTITEMS";
+	n++;	
 
 	makeref(itm,Items[n]);
 	itm.id = "Totem_009";//Тотем Майяуэль
