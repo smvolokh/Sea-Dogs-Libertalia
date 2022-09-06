@@ -9,7 +9,7 @@
 int iSND = 0;
 
 string totalInfo;
-string back2totalInfo = "\n\n*** Щелкните по кнопке 'Умения' вверху, чтобы вновь отобразить перечень команд данного меню ***";
+string back2totalInfo = "\n\n*** Щелкните по кнопке ''Умения'' вверху, чтобы вновь отобразить перечень команд данного меню ***";
 
 string sSkillInc = "На 1 увеличено умение ";
 string sSkillDec = "На 1 уменьшено умение ";
@@ -17,7 +17,9 @@ string sMaxValue = "Умение достигло максимального значения!";
 string sMinValue = "Умение достигло минимального значения!";
 string sCurValue = "Текущее значение: ";
 string sGlobal = "Это глобальный параметр, а значит применяется и ко всем NPC в команде ГГ.";
-string sDefault = "Норма для текущей сложности игры: ";
+string sDefault = "\n\nРекомендуемый модификатор для текущей сложности игры в мод-паке ''Либерталия'': ";
+string sDefault1 = "\n\nПримерный модификатор для текущей сложности игры в оригинальных Корсарах Каждому Своё: ";
+string sDefault2 = "\n\nПо сравнению с оригиналом модификатор набора опыта увеличен примерно в 2-2,5 раза из-за большего количества контента (новые квесты сюжетные и генераторные, новые возможности для прокачки в лице тренировок, банкетов, взяток, крабов, вольных капитанов и т.д.). Это необоходимо для того, чтобы прокачка была более плавной и равномерной в ходе игры в рамках выполнения всех квестов, но благодаря этой функции Вы всегда можете настроить сей модификатор под свои нужды и видение. :) ";
 
 void InitInterface(string iniName)
 {
@@ -103,22 +105,14 @@ void CalculateInfoData()
 					"< 19 > " + descF19 + NewStr() + "< 20 > " + descF20 + NewStr() + "< 21 > " + descF21 + NewStr() +
 					"< 22 > " + descF22 + NewStr() + "< 23 > " + descF23 + NewStr() + "< 24 > " + descF24 + NewStr() +
 					"< 25 > " + descF25 + NewStr() + "< 26 > " + descF26 + NewStr() + "< 27 > " + descF27 + NewStr() +
-					"< 28 > " + descF28 + NewStr() + "< 29 > " + descF29 + NewStr() +
-					"\n\n********** ЛИЧНЫЕ УМЕНИЯ **********" + NewStr() +
-					"< 30 > " + descF30 + NewStr() + "< 31 > " + descF31 + NewStr() +
-					"< 32 > " + descF32 + NewStr() + "< 33 > " + descF33 + NewStr() + "< 34 > " + descF34 + NewStr() +
+					"< 28 > " + descF28 + NewStr() + "< 29 > " + descF29 + NewStr() + "< 30 > " + descF30 + NewStr() + "< 31 > " + descF31 + NewStr() + "< 32 > " + descF32 + NewStr() + "< 33 > " + descF33 + NewStr() + "\n\n********** ЛИЧНЫЕ УМЕНИЯ **********" + NewStr() + "< 34 > " + descF34 + NewStr() +
 					"< 35 > " + descF35 + NewStr() + "< 36 > " + descF36 + NewStr() + "< 37 > " + descF37 + NewStr() +
 					"< 38 > " + descF38 + NewStr() + "< 39 > " + descF39 + NewStr() + "< 40 > " + descF40 + NewStr() +
-					"< 41 > " + descF41 + NewStr() + "< 42 > " + descF42 + NewStr() + "< 43 > " + descF43 + NewStr() +
-					"\n\n********** КОРАБЕЛЬНЫЕ УМЕНИЯ **********" + NewStr() +
-					"< 44 > " + descF44 + NewStr() + "< 45 > " + descF45 + NewStr() +
-					"< 46 > " + descF46 + NewStr() + "< 47 > " + descF47 + NewStr() + "< 48 > " + descF48 + NewStr() +
+					"< 41 > " + descF41 + NewStr() + "< 42 > " + descF42 + NewStr() + "< 43 > " + descF43 + NewStr() + "< 44 > " + descF44 + NewStr() + "< 45 > " + descF45 + NewStr() +
+					"< 46 > " + descF46 + NewStr() + "< 47 > " + descF47 + NewStr() + "\n\n********** КОРАБЕЛЬНЫЕ УМЕНИЯ **********" + NewStr() + "< 48 > " + descF48 + NewStr() +
 					"< 49 > " + descF49 + NewStr() + "< 50 > " + descF50 + NewStr() + "< 51 > " + descF51 + NewStr() +
 					"< 52 > " + descF52 + NewStr() + "< 53 > " + descF53 + NewStr() + "< 54 > " + descF54 + NewStr() +
-					"< 55 > " + descF55 + NewStr() + "< 56 > " + descF56 + NewStr() + "< 57 > " + descF57 + NewStr() +
-					"\n\n********** ПРОЧЕЕ **********" + NewStr() +
-					"< 58 > " + descF58 + NewStr() + "< 59 > " + descF59 + NewStr() + "< 60 > " + descF60 + NewStr() + "< 61 > " + descF61 + NewStr() +
-					"< 62 > " + descF62 + NewStr() + "< 63 > " + descF63 + NewStr() + "< 64 > " + descF64 + NewStr() +
+					"< 55 > " + descF55 + NewStr() + "< 56 > " + descF56 + NewStr() + "< 57 > " + descF57 + NewStr() + "< 58 > " + descF58 + NewStr() + "< 59 > " + descF59 + NewStr() + "< 60 > " + descF60 + NewStr() + "< 61 > " + descF61 + NewStr() + "\n\n********** ПРОЧЕЕ **********" + NewStr() + "< 62 > " + descF62 + NewStr() + "< 63 > " + descF63 + NewStr() + "< 64 > " + descF64 + NewStr() +
 					"< 65 > " + descF65 + NewStr() + "< 66 > " + descF66 + NewStr() + "< 67 > " + descF67 + NewStr() +
 					"< 68 > " + descF68 + NewStr() + "< 69 > " + descF69 + NewStr() + "< 70 > " + descF70;
 		// перевод строки (по другому у меня не вышло) +LanguageConvertString(idLngFile,"new_string");
@@ -938,28 +932,44 @@ void CalculateInfoDataF25()
 	totalInfo = "#25 " + descF25;
 	CommonActions();
 	int exprate = 0;
+	int exprate1 = 0;
 	string sResult = "Модификатор скорости набора опыта увеличен!";
 	string sValue = "Модификатор скорости набора опыта достиг максимального уровня!";
-	if (MOD_SKILL_ENEMY_RATE >= 10) exprate = 105;
-	if (MOD_SKILL_ENEMY_RATE < 10) exprate = 75;
-	if (MOD_SKILL_ENEMY_RATE < 8) exprate = 50;
-	if (MOD_SKILL_ENEMY_RATE < 6) exprate = 30;
-	if (MOD_SKILL_ENEMY_RATE < 3) exprate = 15;
-	if (MOD_EXP_RATE < 150)
+	if (MOD_SKILL_ENEMY_RATE >= 1) exprate = 30;
+	if (MOD_SKILL_ENEMY_RATE >= 2) exprate = 50;
+	if (MOD_SKILL_ENEMY_RATE >= 3) exprate = 70;
+	if (MOD_SKILL_ENEMY_RATE >= 4) exprate = 90;
+	if (MOD_SKILL_ENEMY_RATE >= 5) exprate = 110;
+	if (MOD_SKILL_ENEMY_RATE >= 6) exprate = 130;
+	if (MOD_SKILL_ENEMY_RATE >= 7) exprate = 150;
+	if (MOD_SKILL_ENEMY_RATE >= 8) exprate = 170;
+	if (MOD_SKILL_ENEMY_RATE >= 9) exprate = 190;
+	if (MOD_SKILL_ENEMY_RATE >= 10) exprate = 210;
+	if (MOD_SKILL_ENEMY_RATE >= 1) exprate1 = 15;
+	if (MOD_SKILL_ENEMY_RATE >= 2) exprate1 = 24;
+	if (MOD_SKILL_ENEMY_RATE >= 3) exprate1 = 30;
+	if (MOD_SKILL_ENEMY_RATE >= 4) exprate1 = 36;
+	if (MOD_SKILL_ENEMY_RATE >= 5) exprate1 = 43;
+	if (MOD_SKILL_ENEMY_RATE >= 6) exprate1 = 50;
+	if (MOD_SKILL_ENEMY_RATE >= 7) exprate1 = 63;
+	if (MOD_SKILL_ENEMY_RATE >= 8) exprate1 = 75;
+	if (MOD_SKILL_ENEMY_RATE >= 9) exprate1 = 90;
+	if (MOD_SKILL_ENEMY_RATE >= 10) exprate1 = 105;
+	if (MOD_EXP_RATE < 250)
 	{
 		MOD_EXP_RATE += 1;
 		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
 		Log_info(sResult);
 		Log_info(sCurValue + MOD_EXP_RATE);
-		totalInfo += "\n\n" + sResult + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + "Чем выше это значение, тем дольше качаются скиллы." + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate);
+		totalInfo += "\n\n" + sResult + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + "Чем выше это значение, тем дольше качаются умения." + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate) + NewStr() + sDefault1 + sti(exprate1) + NewStr() + sDefault2;
 	}
 	else
 	{
-		if(MOD_EXP_RATE > 150) MOD_EXP_RATE = 150;
+		if(MOD_EXP_RATE > 250) MOD_EXP_RATE = 250;
 		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
 		Log_info(sValue);
 		Log_info(sCurValue + MOD_EXP_RATE);
-		totalInfo += sValue + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate);
+		totalInfo += sValue + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate) + NewStr() + sDefault1 + sti(exprate1)+ NewStr() + sDefault2;
 	}
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
@@ -973,20 +983,36 @@ void CalculateInfoDataF26()
 	totalInfo = "#26 " + descF26;
 	CommonActions();
 	int exprate = 0;
+	int exprate1 = 0;
 	string sResult = "Модификатор скорости набора опыта уменьшен!";
 	string sValue = "Модификатор скорости набора опыта достиг минимального уровня!";
-	if (MOD_SKILL_ENEMY_RATE >= 10) exprate = 105;
-	if (MOD_SKILL_ENEMY_RATE < 10) exprate = 75;
-	if (MOD_SKILL_ENEMY_RATE < 8) exprate = 50;
-	if (MOD_SKILL_ENEMY_RATE < 6) exprate = 30;
-	if (MOD_SKILL_ENEMY_RATE < 3) exprate = 15;
+	if (MOD_SKILL_ENEMY_RATE >= 1) exprate = 30;
+	if (MOD_SKILL_ENEMY_RATE >= 2) exprate = 50;
+	if (MOD_SKILL_ENEMY_RATE >= 3) exprate = 70;
+	if (MOD_SKILL_ENEMY_RATE >= 4) exprate = 90;
+	if (MOD_SKILL_ENEMY_RATE >= 5) exprate = 110;
+	if (MOD_SKILL_ENEMY_RATE >= 6) exprate = 130;
+	if (MOD_SKILL_ENEMY_RATE >= 7) exprate = 150;
+	if (MOD_SKILL_ENEMY_RATE >= 8) exprate = 170;
+	if (MOD_SKILL_ENEMY_RATE >= 9) exprate = 190;
+	if (MOD_SKILL_ENEMY_RATE >= 10) exprate = 210;
+	if (MOD_SKILL_ENEMY_RATE >= 1) exprate1 = 15;
+	if (MOD_SKILL_ENEMY_RATE >= 2) exprate1 = 24;
+	if (MOD_SKILL_ENEMY_RATE >= 3) exprate1 = 30;
+	if (MOD_SKILL_ENEMY_RATE >= 4) exprate1 = 36;
+	if (MOD_SKILL_ENEMY_RATE >= 5) exprate1 = 43;
+	if (MOD_SKILL_ENEMY_RATE >= 6) exprate1 = 50;
+	if (MOD_SKILL_ENEMY_RATE >= 7) exprate1 = 63;
+	if (MOD_SKILL_ENEMY_RATE >= 8) exprate1 = 75;
+	if (MOD_SKILL_ENEMY_RATE >= 9) exprate1 = 90;
+	if (MOD_SKILL_ENEMY_RATE >= 10) exprate1 = 105;
 	if (MOD_EXP_RATE > 10)
 	{
 		MOD_EXP_RATE -= 1;
 		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
 		Log_info(sResult);
 		Log_info(sCurValue + MOD_EXP_RATE);
-		totalInfo += "\n\n" + sResult + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + "Чем ниже это значение, тем быстрее качаются скиллы." + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate);
+		totalInfo += "\n\n" + sResult + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + "Чем ниже это значение, тем быстрее качаются скиллы." + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate) + NewStr() + sDefault1 + sti(exprate1) + NewStr() + sDefault2;
 	}
 	else
 	{
@@ -994,13 +1020,13 @@ void CalculateInfoDataF26()
 		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
 		Log_info(sValue);
 		Log_info(sCurValue + MOD_EXP_RATE);
-		totalInfo += sValue + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate);
+		totalInfo += sValue + NewStr() + sCurValue + MOD_EXP_RATE + NewStr() + sGlobal + NewStr() + sDefault + sti(exprate) + NewStr() + sDefault1 + sti(exprate1) + NewStr() + sDefault2;
 	}
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
 	Statistic_AddValue(PChar, "Cheats.CSM2.F26", 1);
-}
+} 
 
 string descF27 = "Для управления кораблем требуется \ не требуется навигация";
 void CalculateInfoDataF27()
@@ -1075,10 +1101,118 @@ void CalculateInfoDataF29()
 	Statistic_AddValue(PChar, "Cheats.CSM2.F29", 1);
 }
 
-string descF30 = "Харизма +1";
+
+string descF30 = "Включить \ выключить возможность заниматься контрабандой на любом корабле";
 void CalculateInfoDataF30()
 {
 	totalInfo = "#30 " + descF30;
+	CommonActions();
+	if (!CheckAttribute(pchar, "CSM.FreeSmuggling"))
+	{
+		pchar.CSM.FreeSmuggling = true;
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+		Log_info("Включена свободная контрабанда!");
+		Log_info("На сделку можно заявляться на любом корабле и хоть при полной эскадре!");
+		totalInfo += "Включена свободная контрабанда!" + NewStr() + "На сделку можно заявляться на любом корабле и хоть при полной эскадре!";
+	}
+	else
+	{
+		DeleteAttribute(pchar, "CSM.FreeSmuggling");
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+		Log_info("Контрабанда выставлена по умолчанию.");
+		totalInfo += "Контрабанда выставлена по умолчанию.";
+	}
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM2.F30", 1);
+}
+
+string descF31 = "Включить \ выключить возможность быстрого перехода во вражеских колониях";
+void CalculateInfoDataF31()
+{
+	totalInfo = "#31 " + descF31;
+	CommonActions();
+	if (CheckAttribute(pchar, "CSM.FastTravelEnemy"))
+	{
+		DeleteAttribute(pchar, "CSM.FastTravelEnemy");
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+		Log_info("Быстрый переход во вражеских поселениях запрещен...");
+		totalInfo += "Быстрый переход во вражеских поселениях запрещен...";
+	}
+	else
+	{
+		pchar.CSM.FastTravelEnemy = true;
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+		Log_info("Разрешен быстрый переход во всех вражеских поселениях!");
+		totalInfo += "Разрешен быстрый переход во всех вражеских поселениях!";
+	}
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM2.F31", 1);
+}
+
+string descF32 = "Включить \ выключить ускорение и замедление времени всегда и везде";
+void CalculateInfoDataF32() - в умения
+{
+	totalInfo = "#32 " + descF32;
+	CommonActions();
+	if (!CheckAttribute(pchar, "CSM.TimeScaleEnable"))
+	{
+		pchar.CSM.TimeScaleEnable = true;
+		totalInfo += "Ускорение и замедление времени работает всегда и везде!";
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+	}
+	else
+	{
+		DeleteAttribute(pchar, "CSM.TimeScaleEnable");
+		SetTimeScale(1.0);
+		totalInfo += "Возможность ускорения и замедления времени выставлена по умолчанию.";
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+	}
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM2.F32", 1);
+}
+
+string descF33 = "Включить \ выключить возможность расталкивать толпу (3 варианта)";
+void CalculateInfoDataF33()
+{
+	totalInfo = "#33 " + descF33;
+	CommonActions();
+
+	SM_PusherSwitch();
+
+	if (CheckAttribute(pchar, "CSM.CrowdPusher"))
+	{
+		switch(sti(pchar.CSM.CrowdPusher))
+		{
+			case 1: totalInfo += "Толкач толпы: слабый"; break;
+			case 2: totalInfo += "Толкач толпы: умеренный"; break;
+			case 3: totalInfo += "Толкач толпы: усиленный"; break;
+		}
+		totalInfo += "\n\nОтпихивает прочь дружественные или нейтральные НПС, мешающие перемещению Вашего персонажа (прочь с дороги)\nБолее плавную работу обеспечивает слабый и умеренный режим.\nУсиленный эффективнее работает с большими толпами.";
+		totalInfo += "\n\nВражеские, квестовые и некоторые особые персонажи (грузчики, бомжи, спящие и пр) не отпихиваются.";
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+	}
+	else
+	{
+		totalInfo += "Расталкиватель толпы отключен!";
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+	}
+
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM2.F33", 1);
+}
+
+string descF34 = "Харизма +1";
+void CalculateInfoDataF34()
+{
+	totalInfo = "#34 " + descF34;
 	CommonActions();
 	if (sti(pchar.skill.Leadership) < 100)
 	{
@@ -1096,13 +1230,13 @@ void CalculateInfoDataF30()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F30", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F34", 1);
 }
 
-string descF31 = "Харизма -1";
-void CalculateInfoDataF31()
+string descF35 = "Харизма -1";
+void CalculateInfoDataF35()
 {
-	totalInfo = "#31 " + descF31;
+	totalInfo = "#35 " + descF35;
 	CommonActions();
 	if (sti(pchar.skill.Leadership) > 1)
 	{
@@ -1120,13 +1254,13 @@ void CalculateInfoDataF31()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F31", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F35", 1);
 }
 
-string descF32 = "Рапиры \ Шпаги +1";
-void CalculateInfoDataF32()
+string descF36 = "Рапиры \ Шпаги +1";
+void CalculateInfoDataF36()
 {
-	totalInfo = "#32 " + descF32;
+	totalInfo = "#36 " + descF36;
 	CommonActions();
 	if (sti(pchar.skill.FencingL) < 100)
 	{
@@ -1144,13 +1278,13 @@ void CalculateInfoDataF32()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F32", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F36", 1);
 }
 
-string descF33 = "Рапиры \ Шпаги -1";
-void CalculateInfoDataF33()
+string descF37 = "Рапиры \ Шпаги -1";
+void CalculateInfoDataF37()
 {
-	totalInfo = "#33 " + descF33;
+	totalInfo = "#37 " + descF37;
 	CommonActions();
 	if (sti(pchar.skill.FencingL) > 1)
 	{
@@ -1168,13 +1302,13 @@ void CalculateInfoDataF33()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F33", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F37", 1);
 }
 
-string descF34 = "Сабли \ Тесаки +1";
-void CalculateInfoDataF34()
+string descF38 = "Сабли \ Тесаки +1";
+void CalculateInfoDataF38()
 {
-	totalInfo = "#34 " + descF34;
+	totalInfo = "#38 " + descF38;
 	CommonActions();
 	if (sti(pchar.skill.FencingS) < 100)
 	{
@@ -1192,13 +1326,13 @@ void CalculateInfoDataF34()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F34", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F38", 1);
 }
 
-string descF35 = "Сабли \ Тесаки -1";
-void CalculateInfoDataF35()
+string descF39 = "Сабли \ Тесаки -1";
+void CalculateInfoDataF39()
 {
-	totalInfo = "#35 " + descF35;
+	totalInfo = "#39 " + descF39;
 	CommonActions();
 	if (sti(pchar.skill.FencingS) > 1)
 	{
@@ -1216,13 +1350,13 @@ void CalculateInfoDataF35()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F35", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F39", 1);
 }
 
-string descF36 = "Палаши \ Топоры +1";
-void CalculateInfoDataF36()
+string descF40 = "Палаши \ Топоры +1";
+void CalculateInfoDataF40()
 {
-	totalInfo = "#36 " + descF36;
+	totalInfo = "#40 " + descF40;
 	CommonActions();
 	if (sti(pchar.skill.FencingH) < 100)
 	{
@@ -1240,13 +1374,13 @@ void CalculateInfoDataF36()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F36", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F40", 1);
 }
 
-string descF37 = "Палаши \ Топоры -1";
-void CalculateInfoDataF37()
+string descF41 = "Палаши \ Топоры -1";
+void CalculateInfoDataF41()
 {
-	totalInfo = "#37 " + descF37;
+	totalInfo = "#41 " + descF41;
 	CommonActions();
 	if (sti(pchar.skill.FencingH) > 1)
 	{
@@ -1264,13 +1398,13 @@ void CalculateInfoDataF37()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F37", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F41", 1);
 }
 
-string descF38 = "Пистоли \ Мушкеты +1";
-void CalculateInfoDataF38()
+string descF42 = "Пистоли \ Мушкеты +1";
+void CalculateInfoDataF42()
 {
-	totalInfo = "#38 " + descF38;
+	totalInfo = "#42 " + descF42;
 	CommonActions();
 	if (sti(pchar.skill.Pistol) < 100)
 	{
@@ -1288,13 +1422,13 @@ void CalculateInfoDataF38()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F38", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F42", 1);
 }
 
-string descF39 = "Пистоли \ Мушкеты -1";
-void CalculateInfoDataF39()
+string descF43 = "Пистоли \ Мушкеты -1";
+void CalculateInfoDataF43()
 {
-	totalInfo = "#39 " + descF39;
+	totalInfo = "#43 " + descF43;
 	CommonActions();
 	if (sti(pchar.skill.Pistol) > 1)
 	{
@@ -1312,13 +1446,13 @@ void CalculateInfoDataF39()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F39", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F43", 1);
 }
 
-string descF40 = "Везение +1";
-void CalculateInfoDataF40()
+string descF44 = "Везение +1";
+void CalculateInfoDataF44()
 {
-	totalInfo = "#40 " + descF40;
+	totalInfo = "#44 " + descF44;
 	CommonActions();
 	if (sti(pchar.skill.Fortune) < 100)
 	{
@@ -1336,13 +1470,13 @@ void CalculateInfoDataF40()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F40", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F44", 1);
 }
 
-string descF41 = "Везение -1";
-void CalculateInfoDataF41()
+string descF45 = "Везение -1";
+void CalculateInfoDataF45()
 {
-	totalInfo = "#41 " + descF41;
+	totalInfo = "#45 " + descF45;
 	CommonActions();
 	if (sti(pchar.skill.Fortune) > 1)
 	{
@@ -1360,13 +1494,13 @@ void CalculateInfoDataF41()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F41", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F45", 1);
 }
 
-string descF42 = "Скрытность +1";
-void CalculateInfoDataF42()
+string descF46 = "Скрытность +1";
+void CalculateInfoDataF46()
 {
-	totalInfo = "#42 " + descF42;
+	totalInfo = "#46 " + descF46;
 	CommonActions();
 	if (sti(pchar.skill.Sneak) < 100)
 	{
@@ -1384,13 +1518,13 @@ void CalculateInfoDataF42()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F42", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F46", 1);
 }
 
-string descF43 = "Скрытность -1";
-void CalculateInfoDataF43()
+string descF47 = "Скрытность -1";
+void CalculateInfoDataF47()
 {
-	totalInfo = "#43 " + descF43;
+	totalInfo = "#47 " + descF47;
 	CommonActions();
 	if (sti(pchar.skill.Sneak) > 1)
 	{
@@ -1408,13 +1542,13 @@ void CalculateInfoDataF43()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F43", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F47", 1);
 }
 
-string descF44 = "Навигация +1";
-void CalculateInfoDataF44()
+string descF48 = "Навигация +1";
+void CalculateInfoDataF48()
 {
-	totalInfo = "#44 " + descF44;
+	totalInfo = "#48 " + descF48;
 	CommonActions();
 	if (sti(pchar.skill.Sailing) < 100)
 	{
@@ -1432,13 +1566,13 @@ void CalculateInfoDataF44()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F44", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F48", 1);
 }
 
-string descF45 = "Навигация -1";
-void CalculateInfoDataF45()
+string descF49 = "Навигация -1";
+void CalculateInfoDataF49()
 {
-	totalInfo = "#45 " + descF45;
+	totalInfo = "#49 " + descF49;
 	CommonActions();
 	if (sti(pchar.skill.Sailing) > 1)
 	{
@@ -1459,10 +1593,10 @@ void CalculateInfoDataF45()
 	Statistic_AddValue(PChar, "Cheats.CSM2.F45", 1);
 }
 
-string descF46 = "Меткость +1";
-void CalculateInfoDataF46()
+string descF50 = "Меткость +1";
+void CalculateInfoDataF50()
 {
-	totalInfo = "#46 " + descF46;
+	totalInfo = "#50 " + descF50;
 	CommonActions();
 	if (sti(pchar.skill.Accuracy) < 100)
 	{
@@ -1480,13 +1614,13 @@ void CalculateInfoDataF46()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F46", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F50", 1);
 }
 
-string descF47 = "Меткость -1";
-void CalculateInfoDataF47()
+string descF51 = "Меткость -1";
+void CalculateInfoDataF51()
 {
-	totalInfo = "#47 " + descF47;
+	totalInfo = "#51 " + descF51;
 	CommonActions();
 	if (sti(pchar.skill.Accuracy) > 1)
 	{
@@ -1504,13 +1638,13 @@ void CalculateInfoDataF47()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F47", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F51", 1);
 }
 
-string descF48 = "Орудия +1";
-void CalculateInfoDataF48()
+string descF52 = "Орудия +1";
+void CalculateInfoDataF52()
 {
-	totalInfo = "#48 " + descF48;
+	totalInfo = "#52 " + descF52;
 	CommonActions();
 	if (sti(pchar.skill.Cannons) < 100)
 	{
@@ -1528,13 +1662,13 @@ void CalculateInfoDataF48()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F48", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F52", 1);
 }
 
-string descF49 = "Орудия -1";
-void CalculateInfoDataF49()
+string descF53 = "Орудия -1";
+void CalculateInfoDataF53()
 {
-	totalInfo = "#49 " + descF49;
+	totalInfo = "#53 " + descF53;
 	CommonActions();
 	if (sti(pchar.skill.Cannons) > 1)
 	{
@@ -1552,13 +1686,13 @@ void CalculateInfoDataF49()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F49", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F53", 1);
 }
 
-string descF50 = "Абордаж +1";
-void CalculateInfoDataF50()
+string descF54 = "Абордаж +1";
+void CalculateInfoDataF54()
 {
-	totalInfo = "#50 " + descF50;
+	totalInfo = "#54 " + descF54;
 	CommonActions();
 	if (sti(pchar.skill.Grappling) < 100)
 	{
@@ -1576,13 +1710,13 @@ void CalculateInfoDataF50()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F50", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F54", 1);
 }
 
-string descF51 = "Абордаж -1";
-void CalculateInfoDataF51()
+string descF55 = "Абордаж -1";
+void CalculateInfoDataF55()
 {
-	totalInfo = "#51 " + descF51;
+	totalInfo = "#55 " + descF55;
 	CommonActions();
 	if (sti(pchar.skill.Grappling) > 1)
 	{
@@ -1600,13 +1734,13 @@ void CalculateInfoDataF51()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F51", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F55", 1);
 }
 
-string descF52 = "Защита +1";
-void CalculateInfoDataF52()
+string descF56 = "Защита +1";
+void CalculateInfoDataF56()
 {
-	totalInfo = "#52 " + descF52;
+	totalInfo = "#56 " + descF56;
 	CommonActions();
 	if (sti(pchar.skill.Defence) < 100)
 	{
@@ -1624,13 +1758,13 @@ void CalculateInfoDataF52()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F52", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F56", 1);
 }
 
-string descF53 = "Защита -1";
-void CalculateInfoDataF53()
+string descF57 = "Защита -1";
+void CalculateInfoDataF57()
 {
-	totalInfo = "#53 " + descF53;
+	totalInfo = "#57 " + descF57;
 	CommonActions();
 	if (sti(pchar.skill.Defence) > 1)
 	{
@@ -1648,13 +1782,13 @@ void CalculateInfoDataF53()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F53", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F57", 1);
 }
 
-string descF54 = "Починка +1";
-void CalculateInfoDataF54()
+string descF58 = "Починка +1";
+void CalculateInfoDataF58()
 {
-	totalInfo = "#54 " + descF54;
+	totalInfo = "#58 " + descF58;
 	CommonActions();
 	if (sti(pchar.skill.Repair) < 100)
 	{
@@ -1672,13 +1806,13 @@ void CalculateInfoDataF54()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F54", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F58", 1);
 }
 
-string descF55 = "Починка -1";
-void CalculateInfoDataF55()
+string descF59 = "Починка -1";
+void CalculateInfoDataF59()
 {
-	totalInfo = "#55 " + descF55;
+	totalInfo = "#59 " + descF59;
 	CommonActions();
 	if (sti(pchar.skill.Repair) > 1)
 	{
@@ -1696,13 +1830,13 @@ void CalculateInfoDataF55()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F55", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F59", 1);
 }
 
-string descF56 = "Торговля +1";
-void CalculateInfoDataF56()
+string descF60 = "Торговля +1";
+void CalculateInfoDataF60()
 {
-	totalInfo = "#56 " + descF56;
+	totalInfo = "#60 " + descF60;
 	CommonActions();
 	if (sti(pchar.skill.Commerce) < 100)
 	{
@@ -1720,13 +1854,13 @@ void CalculateInfoDataF56()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F56", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM2.F60", 1);
 }
 
-string descF57 = "Торговля -1";
-void CalculateInfoDataF57()
+string descF61 = "Торговля -1";
+void CalculateInfoDataF61()
 {
-	totalInfo = "#57 " + descF57;
+	totalInfo = "#61 " + descF61;
 	CommonActions();
 	if (sti(pchar.skill.Commerce) > 1)
 	{
@@ -1742,54 +1876,6 @@ void CalculateInfoDataF57()
 		totalInfo += sMinValue;
 	}
 	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F57", 1);
-}
-
-string descF58 = "! ПУСТО !";
-void CalculateInfoDataF58()
-{
-	totalInfo = "#58 " + descF58;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F58", 1);
-}
-
-string descF59 = "! ПУСТО !";
-void CalculateInfoDataF59()
-{
-	totalInfo = "#59 " + descF59;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F59", 1);
-}
-
-string descF60 = "! ПУСТО !";
-void CalculateInfoDataF60()
-{
-	totalInfo = "#60 " + descF60;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM2.F60", 1);
-}
-
-string descF61 = "! ПУСТО !";
-void CalculateInfoDataF61()
-{
-	totalInfo = "#61 " + descF61;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
 	Statistic_AddValue(PChar, "Cheats.CSM2.F61", 1);

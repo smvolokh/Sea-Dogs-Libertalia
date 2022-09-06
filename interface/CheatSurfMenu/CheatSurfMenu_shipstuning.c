@@ -11,7 +11,7 @@ int iShipType;
 ref ms, rRealShip, rBaseShip;
 
 string totalInfo;
-string back2totalInfo = "\n\n*** Щелкните по кнопке 'Корабль' вверху, чтобы вновь отобразить перечень команд данного меню ***";
+string back2totalInfo = "\n\n*** Щелкните по кнопке ''Корабль'' вверху, чтобы вновь отобразить перечень команд данного меню ***";
 
 string sNoShip = "А где же Ваш корабль, капитан?!";
 string sCrewNow = "Текущая численность команды: ";
@@ -132,11 +132,8 @@ void CalculateInfoData()
 					"< 58 > " + descF58 + NewStr() + "< 59 > " + descF59 + NewStr() + "< 60 > " + descF60 + NewStr() +
 					"\n\n********** ПРОЧЕЕ **********" + NewStr() +
 					"< 61 > " + descF61 + NewStr() +
-					"\n\n---------- Фишки от Sticksъ ----------" + NewStr() +
 					"< 62 > " + descF62 + NewStr() + "< 63 > " + descF63 + NewStr() + "< 64 > " + descF64 + NewStr() +
-					"< 65 > " + descF65 + NewStr() + "< 66 > " + descF66 + NewStr() +
-					"---------- Фишки от Sticksъ ----------" + NewStr() +
-					"\n\n< 67 > " + descF67 + NewStr() + "< 68 > " + descF68 + NewStr() + "< 69 > " + descF69 + NewStr() + "< 70 > " + descF70;
+					"< 65 > " + descF65 + NewStr() + "\n\n---------- Фишки от Sticksъ ----------" + NewStr() + "< 66 > " + descF66 + NewStr() + "< 67 > " + descF67 + NewStr() + "< 68 > " + descF68 + NewStr() + "< 69 > " + descF69 + NewStr() + "< 70 > " + descF70;
 		// перевод строки (по другому у меня не вышло) +LanguageConvertString(idLngFile,"new_string");
 		// тут высчитываем нужную информацию и выводим в totalInfo <--
 	}
@@ -2564,11 +2561,120 @@ void CalculateInfoDataF61()
 	Statistic_AddValue(PChar, "Cheats.CSM4.F61", 1);
 }
 
-// by Sticksъ -->
-string descF62 = "Изменить максимальный калибр орудий";
+string descF62 = "Освятить корабль";
 void CalculateInfoDataF62()
 {
-    totalInfo = "#62 " + descF62;
+	totalInfo = "#62 " + descF62;
+	CommonActions();
+	if (!CheckAttribute(pchar, "GenQuest.Shipshine"))
+	{
+		pchar.GenQuest.Shipshine = true;
+		iSND = PlaySound("Voice\Russian\priest_bead.wav");
+		totalInfo += "Корабль был освящен! Число матросов для найма в тавернах увеличилось вдвое!";
+	}
+	else
+	{
+		DeleteAttribute(Pchar, "GenQuest.Shipshine");
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+		totalInfo += "Освящение утратило свою силу...";
+	}
+	PlaySound("Interface\sobitie_na_karte_001.wav");
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM4.F62", 1);
+}
+
+string descF63 = "Удалить \ добавить кораблю статус ''ворованный'' (влияет на его стоимость)";
+void CalculateInfoDataF63()
+{
+	totalInfo = "#63 " + descF63;
+	CommonActions();
+	ref rMS = GetRealShip(sti(pchar.Ship.Type));
+	if (sti(Pchar.Ship.Type) != SHIP_NOTUSED)
+	{
+		if (rMS.Stolen == true)
+		{
+			rMS.Stolen = false;
+			iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+			totalInfo += "Корабль теперь не ''ворованный''!";
+		}
+		else
+		{
+			rMS.Stolen = true;
+			iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+			totalInfo += "Корабль имеет статус ''ворованный''...";
+		}
+	}
+	else
+	{
+		Log_info("А где же Ваш корабль, капитан?!");
+		totalInfo += "А где же Ваш корабль, капитан?!";
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+	}
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM4.F63", 1);
+}
+
+string descF64 = "Включить \ отключить выход из строя орудий на корабле Вашего персонажа";
+void CalculateInfoDataF64()
+{
+	totalInfo = "#64 " + descF64;
+	CommonActions();
+	if (!CheckAttribute(pchar, "CSM.NoCannonsBoom"))
+	{
+		pchar.CSM.NoCannonsBoom = true;
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+		Log_info("Орудия на корабле Вашего персонажа не будут получать никаких повреждений!");
+		totalInfo += "Орудия на корабле Вашего персонажа не будут получать никаких повреждений!";
+	}
+	else
+	{
+		DeleteAttribute(pchar, "CSM.NoCannonsBoom");
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+		Log_info("Орудия на корабле Вашего персонажа будут повреждаться при стрельбе и от попаданий по ним вражеских снарядов.");
+		totalInfo += "Орудия на корабле Вашего персонажа будут повреждаться при стрельбе и от попаданий по ним вражеских снарядов.";
+	}
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM4.F64", 1);
+}
+
+string descF65 = "Включить \ отключить возможность определения нациями своих флагманских кораблей";
+void CalculateInfoDataF65()
+{
+	totalInfo = "#65 " + descF65;
+	CommonActions();
+	string sRefresh = "Изменение вступит в силу только после смены игровых суток.";
+	if (!CheckAttribute(pchar, "CSM.NoCheckAndIdentifyShips"))
+	{
+		pchar.CSM.NoCheckAndIdentifyShips = true;
+		iSND = PlaySound("_CheatSurfMenu_\Medic.wav");
+		Log_info("Нации не будут опознавать свои флагманские корабли и трубить тревогу!");
+		totalInfo += "Нации не будут опознавать свои флагманские корабли и трубить тревогу!" + NewStr() + sRefresh;
+	}
+	else
+	{
+		DeleteAttribute(pchar, "CSM.NoCheckAndIdentifyShips");
+		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
+		Log_info("Нации опознают свои флагманские корабли и будут трубить тревогу.");
+		totalInfo += "Нации опознают свои флагманские корабли и будут трубить тревогу." + NewStr() + sRefresh;
+	}
+	PlaySound("Interface\sobitie_na_karte_001.wav");
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	// ProcessCancelExit();
+	Statistic_AddValue(PChar, "Cheats.CSM4.F65", 1);
+}
+
+// by Sticksъ -->
+string descF66 = "Изменить максимальный калибр орудий";
+void CalculateInfoDataF66()
+{
+    totalInfo = "#66 " + descF66;
 	CommonActions();
     string log;
 	string sNext = "Следующим нажатием максимальный калибр будет равен ";
@@ -2636,13 +2742,13 @@ void CalculateInfoDataF62()
     totalInfo += back2totalInfo;
     SetFormatedText("INFO_TEXT", totalInfo);
     // ProcessCancelExit();
-    Statistic_AddValue(PChar, "Cheats.CSM4.F62", 1);
+    Statistic_AddValue(PChar, "Cheats.CSM4.F66", 1);
 }
 
-string descF63 = "Увеличить количество орудийных портов до максимума";
-void CalculateInfoDataF63()
+string descF67 = "Увеличить количество орудийных портов до максимума";
+void CalculateInfoDataF67()
 {
-    totalInfo = "#63 " + descF63;
+    totalInfo = "#67 " + descF67;
 	CommonActions();
     if (sti(Pchar.Ship.Type) != SHIP_NOTUSED)
     {
@@ -2716,13 +2822,13 @@ void CalculateInfoDataF63()
     totalInfo += back2totalInfo;
     SetFormatedText("INFO_TEXT", totalInfo);
     // ProcessCancelExit();
-    Statistic_AddValue(PChar, "Cheats.CSM4.F63", 1);
+    Statistic_AddValue(PChar, "Cheats.CSM4.F67", 1);
 }
 
-string descF64 = "Перекрасить корпус корабля";
-void CalculateInfoDataF64()
+string descF68 = "Перекрасить корпус корабля";
+void CalculateInfoDataF68()
 {
-    totalInfo = "#64 " + descF64;
+    totalInfo = "#68 " + descF68;
 	CommonActions();
 	int colors = 1;
 	string sShipName = "";
@@ -2773,13 +2879,13 @@ void CalculateInfoDataF64()
     totalInfo += back2totalInfo;
     SetFormatedText("INFO_TEXT", totalInfo);
     // ProcessCancelExit();
-    Statistic_AddValue(PChar, "Cheats.CSM4.F64", 1);
+    Statistic_AddValue(PChar, "Cheats.CSM4.F68", 1);
 }
 
-string descF65 = "Выбрать текстуру парусов (53 варианта)";
-void CalculateInfoDataF65()
+string descF69 = "Выбрать текстуру парусов (53 варианта)";
+void CalculateInfoDataF69()
 {
-	totalInfo = "#65 " + descF65;
+	totalInfo = "#69 " + descF69;
 	CommonActions();
 
 	int index = 0;
@@ -2816,7 +2922,7 @@ void CalculateInfoDataF65()
 			SetNewPicture("CSMPICTURE", sSailTex);
 
 			Log_info("На судно ГГ установлена новая текстура паруса: " + sSailTex);
-			totalInfo += NewStr() + "На судно ГГ установлена новая текстура паруса: " + sSailTex + NewStr() + "Чтобы вернуть возможность перекрашиваться на верфях, следует дощелкать до 'исходной текстуры'.";
+			totalInfo += NewStr() + "На судно ГГ установлена новая текстура паруса: " + sSailTex + NewStr() + "Чтобы вернуть возможность перекрашиваться на верфях, следует дощелкать до ''исходной текстуры''.";
 
 			ms.CM_sailsIndex = index;
 		}
@@ -2831,13 +2937,13 @@ void CalculateInfoDataF65()
     totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM4.F65", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM4.F69", 1);
 }
 
-string descF66 = "Выбрать текстуру герба";
-void CalculateInfoDataF66()
+string descF70 = "Выбрать текстуру герба";
+void CalculateInfoDataF70()
 {
-	totalInfo = "#66 " + descF66;
+	totalInfo = "#70 " + descF70;
 	CommonActions();
 
 	int maxGeraldsCount = 71; // 30 гербов позаимствовано у тов. Nordik (с http://corsairs-harbour.ru)
@@ -2893,57 +2999,9 @@ void CalculateInfoDataF66()
     totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM4.F66", 1);
-}
-// by Sticksъ <--
-
-string descF67 = "! ПУСТО !";
-void CalculateInfoDataF67()
-{
-	totalInfo = "#67 " + descF67;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM4.F67", 1);
-}
-
-string descF68 = "! ПУСТО !";
-void CalculateInfoDataF68()
-{
-	totalInfo = "#68 " + descF68;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM4.F68", 1);
-}
-
-string descF69 = "! ПУСТО !";
-void CalculateInfoDataF69()
-{
-	totalInfo = "#69 " + descF69;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM4.F69", 1);
-}
-
-string descF70 = "! ПУСТО !";
-void CalculateInfoDataF70()
-{
-	totalInfo = "#70 " + descF70;
-	CommonActions();
-	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += "! ПУСТО !" + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
 	Statistic_AddValue(PChar, "Cheats.CSM4.F70", 1);
 }
+// by Sticksъ <--
 
 void SeaDogsCrew(ref rChar)
 {
@@ -3072,48 +3130,48 @@ void ShowInfoWindow()
 	switch(sNode)
 	{
 		case "INFO_TEXT":
-			sHeader = "Описание меню 'Корабль'";
-			sText1 = "Чтобы вновь отобразить перечень команд данного меню, щелкните по кнопке 'Корабль' вверху";
+			sHeader = "Описание меню ''Корабль''";
+			sText1 = "Чтобы вновь отобразить перечень команд данного меню, щелкните по кнопке ''Корабль'' вверху";
 		break;
 		case "INFO_TEXT2":
 			sHeader = "! ПУСТО !";
 			sText1 = "! ПУСТО !";
 		break;
 		case "CSM_TITLE":
-			sHeader = "Меню 'Корабль'";
-			sText1 = "Перезапуск меню 'Корабль'";
+			sHeader = "Меню ''Корабль''";
+			sText1 = "Перезапуск меню ''Корабль''";
 		break;
 		case "B_M1":
-			sHeader = "Меню 'Персонаж'";
-			sText1 = "Запуск меню 'Персонаж'";
+			sHeader = "Меню ''Персонаж''";
+			sText1 = "Запуск меню ''Персонаж''";
 		break;
 		case "B_M2":
-			sHeader = "Меню 'Умения'";
-			sText1 = "Запуск меню 'Умения'";
+			sHeader = "Меню ''Умения''";
+			sText1 = "Запуск меню ''Умения''";
 		break;
 		case "B_M3":
-			sHeader = "Меню 'Предметы'";
-			sText1 = "Запуск меню 'Предметы'";
+			sHeader = "Меню ''Предметы''";
+			sText1 = "Запуск меню ''Предметы''";
 		break;
 		case "B_M4":
-			sHeader = "Меню 'Локации'";
-			sText1 = "Запуск меню 'Локации'";
+			sHeader = "Меню ''Локации''";
+			sText1 = "Запуск меню ''Локации''";
 		break;
 		case "B_M5":
-			sHeader = "Меню 'Товары'";
-			sText1 = "Запуск меню 'Товары'";
+			sHeader = "Меню ''Товары''";
+			sText1 = "Запуск меню ''Товары''";
 		break;
 		case "B_M6":
-			sHeader = "Меню 'Офицеры'";
-			sText1 = "Запуск меню 'Офицеры'";
+			sHeader = "Меню ''Офицеры''";
+			sText1 = "Запуск меню ''Офицеры''";
 		break;
 		case "B_M7":
-			sHeader = "Меню 'Корабли'";
+			sHeader = "Меню ''Корабли''";
 			sText1 = "Запуск меню 'Корабли'";
 		break;
 		case "B_M8":
-			sHeader = "Меню 'Прочее'";
-			sText1 = "Запуск меню 'Прочее'";
+			sHeader = "Меню ''Прочее''";
+			sText1 = "Запуск меню ''Прочее''";
 		break;
 	}
 	CreateTooltip("#" + sHeader, sText1, argb(255,255,255,255), sText2, argb(255,255,192,192), sText3, argb(255,255,255,255), "", argb(255,255,255,255), sPicture, sGroup, sGroupPicture, 64, 64);

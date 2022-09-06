@@ -9,7 +9,7 @@
 int iSND = 0;
 
 string totalInfo;
-string back2totalInfo = "\n\n*** Щелкните по кнопке 'Прочее' вверху, чтобы вновь отобразить перечень команд данного меню ***";
+string back2totalInfo = "\n\n*** Щелкните по кнопке ''Прочее'' вверху, чтобы вновь отобразить перечень команд данного меню ***";
 
 string sNoShip = "А где же Ваш корабль, капитан?!";
 
@@ -88,20 +88,12 @@ void CalculateInfoData()
 	{
 		// тут высчитываем нужную информацию и выводим в totalInfo - Инициализация -->
 		totalInfo = csmMenuText(1) + "\n\n" +
-					"<  1 > " + descF1 + NewStr() + "<  2 > " + descF2 + NewStr() +
-					"\n\n********** НАСТРОЙКИ ИГРЫ **********" + NewStr() +
-					"<  3 > " + descF3 + NewStr() +
+					"********** УРОВЕНЬ СЛОЖНОСТИ **********" + NewStr() + "<  1 > " + descF1 + NewStr() + "<  2 > " + descF2 + NewStr() + "<  3 > " + descF3 + NewStr() +
 					"<  4 > " + descF4 + NewStr() + "<  5 > " + descF5 + NewStr() + "<  6 > " + descF6 + NewStr() +
-					"<  7 > " + descF7 + NewStr() + "<  8 > " + descF8 + NewStr() + "<  9 > " + descF9 + NewStr() +
-					"\n\n********** КОРАБЕЛЬНОЕ **********" + NewStr() +
-					"< 10 > " + descF10 + NewStr() + "< 11 > " + descF11 + NewStr() + "< 12 > " + descF12 + NewStr() +
+					"<  7 > " + descF7 + NewStr() + "<  8 > " + descF8 + NewStr() + "<  9 > " + descF9 + NewStr() + "< 10 > " + descF10 + NewStr() + 
+			"\n\n********** НАСТРОЙКИ ИГРЫ **********" + NewStr() + "< 11 > " + descF11 + NewStr() + "< 12 > " + descF12 + NewStr() +
 					"< 13 > " + descF13 + NewStr() + "< 14 > " + descF14 + NewStr() + "< 15 > " + descF15 + NewStr() +
-					"< 16 > " + descF16 + NewStr() + "< 17 > " + descF17 + NewStr() + "< 18 > " + descF18 + NewStr() +
-					"< 19 > " + descF19 + NewStr() +
-					"\n\n********** ГЛОБАЛЬНОЕ **********" + NewStr() +
-					"< 20 > " + descF20 + NewStr() + "< 21 > " + descF21 + NewStr() +
-					"< 22 > " + descF22 + NewStr() + "< 23 > " + descF23 + NewStr() + "< 24 > " + descF24 + NewStr() +
-					"\n\n< 25 > " + descF25 + NewStr() + "< 26 > " + descF26 + NewStr() + "< 27 > " + descF27 + NewStr() +
+					"< 16 > " + descF16 + NewStr() + "\n\n********** ГЛОБАЛЬНОЕ **********" + NewStr() + "< 17 > " + descF17 + NewStr() + "< 18 > " + descF18 + NewStr() + "< 19 > " + descF19 + NewStr() + "< 20 > " + descF20 + NewStr() + "< 21 > " + descF21 + NewStr() + "< 22 > " + descF22 + NewStr() + "< 23 > " + descF23 + NewStr() + "< 24 > " + descF24 + NewStr() + "< 25 > " + descF25 + NewStr() + "< 26 > " + descF26 + NewStr() + "< 27 > " + descF27 + NewStr() +
 					"< 28 > " + descF28 + NewStr() + "< 29 > " + descF29 + NewStr() + "< 30 > " + descF30 + NewStr() +
 					"< 31 > " + descF31 + NewStr() + "< 32 > " + descF32 + NewStr() + "< 33 > " + descF33 + NewStr() +
 					"< 34 > " + descF34 + NewStr() + "< 35 > " + descF35 + NewStr() + "< 36 > " + descF36 + NewStr() +
@@ -110,7 +102,7 @@ void CalculateInfoData()
 					"< 43 > " + descF43 + NewStr() + "< 44 > " + descF44 + NewStr() + "< 45 > " + descF45 + NewStr() +
 					"< 46 > " + descF46 + NewStr() + "< 47 > " + descF47 + NewStr() + "< 48 > " + descF48 + NewStr() +
 					"< 49 > " + descF49 + NewStr() + "< 50 > " + descF50 + NewStr() + "< 51 > " + descF51 + NewStr() +
-					"< 52 > " + descF52 + NewStr() + "< 53 > " + descF53 + NewStr() +  "< 53 > " + descF53 + NewStr() +
+					"< 52 > " + descF52 + NewStr() + "< 53 > " + descF53 + NewStr() +
 					"\n\n********** ОЧИСТИТЬ ТРЮМ НА КОРАБЛЕ (КРОМЕ УСТАНОВЛЕННЫХ ОРУДИЙ) **********" + NewStr() + "< 54 > " + descF54 + NewStr() + "< 55 > " + descF55 + GetCompanionName(1) + NewStr() + "< 56 > " + descF56 + GetCompanionName(2) + NewStr() + 
 					"< 57 > " + descF57 + GetCompanionName(3) + NewStr() + "< 58 > " + descF58 + GetCompanionName(4) + NewStr() + "< 59 > " + descF59 + GetCompanionName(5) + NewStr() + 
 					"< 60 > " + descF60 + GetCompanionName(6) + NewStr() + "< 61 > " + descF61 + GetCompanionName(7) + NewStr() + "\n\n ********** ПРОЧЕЕ ********** " + NewStr() + " < 62 > " + descF63 + NewStr() +
@@ -215,88 +207,161 @@ void ProcCommand()
 	if (!CheckAttribute(pchar, "CSM.CMStatsOff")) csmCheatsInfo(8); // Статистика по читам
 }
 
-string descF1 = "Изменить дату месяца на 1 день вперед";
+string descF1 = "Поменять сложность игры на: Юнга (легкая)";
 void CalculateInfoDataF1()
 {
-	totalInfo = "#1 " + descF1;
-	CommonActions();
-	LAi_Fade("", "");
-	AddDataToCurrent(0, 0, 1);
-	PlaySound("Interface\sobitie_na_karte_001.wav");
-	Log_info("Дата текущего месяца изменена на 1 день вперед.");
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	ProcessCancelExit(); // Закликивать не дадим, во избежание багов
-	Statistic_AddValue(PChar, "Cheats.CSM9.F1", 1);
+totalInfo = "#1 " + descF1;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 1;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Юнга (легкая)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Юнга (легкая)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F1", 1);
 }
 
-string descF2 = "Изменить дату месяца на 1 день назад";
+string descF2 = "Поменять сложность игры на: Матрос (легкая)";
 void CalculateInfoDataF2()
 {
-	totalInfo = "#2 " + descF2;
-	CommonActions();
-	bool bExit = false;
-	if (GetDataDay() != 1)
-	{
-		bExit = true;
-		LAi_Fade("", "");
-		AddDataToCurrent(0, 0, -1);
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-		Log_info("Дата текущего месяца изменена на 1 день назад.");
-	}
-	else
-	{
-		iSND = PlaySound("_CheatSurfMenu_\WTF.wav");
-		Log_info("В 1-ый день месяца этого сделать нельзя...");
-		totalInfo += "В 1-ый день месяца этого сделать нельзя...";
-	}
-	PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	if (bExit) ProcessCancelExit(); // Закликивать не дадим, во избежание багов
-	Statistic_AddValue(PChar, "Cheats.CSM9.F2", 1);
+totalInfo = "#2 " + descF2;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 2;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Матрос (легкая)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Матрос (легкая)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F2", 1);
 }
 
-string descF3 = "Изменить сложность игры";
+string descF3 = "Поменять сложность игры на: Боцман (средняя)";
 void CalculateInfoDataF3()
 {
-	totalInfo = "#3 " + descF3;
-	CommonActions();
-	string sLvl = XI_ConvertString("m_Complexity") + ": ";
-	string sLvlCur = "Выбранная сложность игры: ";
-	string sExp = XI_ConvertString("Exp_Rate_Speed") + " (чем меньше это значение, тем быстрее растут умения): ";
-	string sNext = "Следующий выбор: ";
-	string sLvlN, sLvlX;
-	string sLvlA = XI_ConvertString("m_Complexity_1");
-	string sLvlB = XI_ConvertString("m_Complexity_3");
-	string sLvlC = XI_ConvertString("m_Complexity_5");
-	string sLvlD = XI_ConvertString("m_Complexity_7");
-	string sLvlE = XI_ConvertString("m_Complexity_9");
-	string sLvl1 = " (очень легко)!";
-	string sLvl2 = " (легко)!";
-	string sLvl3 = " (средне)!";
-	string sLvl4 = " (тяжело)!";
-	string sLvl5 = " (очень тяжело)!";
-	switch (MOD_SKILL_ENEMY_RATE)
-	{
-		case 2: MOD_EXP_RATE = 30; MOD_SKILL_ENEMY_RATE = 4; sLvlX = sLvlB + sLvl2; sLvlN = sLvlC + sLvl3; break;
-		case 4: MOD_EXP_RATE = 50; MOD_SKILL_ENEMY_RATE = 6; sLvlX = sLvlC + sLvl3; sLvlN = sLvlD + sLvl4; break;
-		case 6: MOD_EXP_RATE = 75; MOD_SKILL_ENEMY_RATE = 8; sLvlX = sLvlD + sLvl4; sLvlN = sLvlE + sLvl5; break;
-		case 8: MOD_EXP_RATE = 105; MOD_SKILL_ENEMY_RATE = 10; sLvlX = sLvlE + sLvl5; sLvlN = sLvlA + sLvl1; break;
-		case 10: MOD_EXP_RATE = 15; MOD_SKILL_ENEMY_RATE = 2; sLvlX = sLvlA + sLvl1; sLvlN = sLvlB + sLvl2; break;
-	}
-	iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
-	Log_info(sLvl + sLvlX);
-	totalInfo += sLvlCur + sLvlX + NewStr() + sExp + MOD_EXP_RATE + NewStr() + sNext + sLvlN + back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F3", 1);
+totalInfo = "#3 " + descF3;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 3;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Боцман (средняя)!";
+Log_info("Выбранная сложность игры: Боцман (средняя)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F3", 1);
 }
 
-string descF4 = "Сменить тип морского сражения (динамика или тактика)";
+
+string descF4 = "Поменять сложность игры на: Старпом (средняя)";
 void CalculateInfoDataF4()
 {
-	totalInfo = "#4 " + descF4;
+totalInfo = "#4 " + descF4;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 4;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Старпом (средняя)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Старпом (средняя)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F4", 1);
+}
+
+string descF5 = "Поменять сложность игры на: Лейтенант (повышенная)";
+void CalculateInfoDataF5()
+{
+totalInfo = "#5 " + descF5;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 5;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Лейтенант (повышенная)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Лейтенант (повышенная)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F5", 1);
+}
+
+string descF6 = "Поменять сложность игры на: Капитан (повышенная)";
+void CalculateInfoDataF6()
+{
+totalInfo = "#6 " + descF6;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 6;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Капитан (повышенная)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Капитан (повышенная)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F6", 1);
+}
+
+string descF7 = "Поменять сложность игры на: Командор (высокая)";
+void CalculateInfoDataF7()
+{
+totalInfo = "#7 " + descF7;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 7;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Командор (высокая)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Командор (высокая)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F7", 1);
+}
+
+string descF8 = "Поменять сложность игры на: Адмирал (высокая)";
+void CalculateInfoDataF8()
+{
+totalInfo = "#8 " + descF8;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 8;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Адмирал (высокая)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Адмирал (высокая)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F8", 1);
+}
+
+string descF9 = "Поменять сложность игры на: Гроза Морей (максимальная)";
+void CalculateInfoDataF9()
+{
+totalInfo = "#9 " + descF9;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 9;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Гроза Морей (максимальная)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Гроза Морей (максимальная)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F9", 1);
+}
+
+string descF10 = "Поменять сложность игры на: Морской Дьявол (максимальная)";
+void CalculateInfoDataF10()
+{
+totalInfo = "#10 " + descF10;
+CommonActions();
+MOD_SKILL_ENEMY_RATE = 10;
+iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
+totalInfo += "Выбранная сложность игры: Морской Дьявол (максимальная)! \n\nРекомендуется переночевать в таверне 3-5 раз и лишь затем вновь контактировать с игровым миром. Это необоходимо, чтобы игровой мир ''перезагрузился'' сообразно выбранной Вами сложности. Учтите, что некоторые моменты могут не изменится, поскольку подгружаются исключительно при начале новой игры.";
+Log_info("Выбранная сложность игры: Морской Дьявол (максимальная)!");
+totalInfo += back2totalInfo;
+SetFormatedText("INFO_TEXT", totalInfo);
+// ProcessCancelExit();
+Statistic_AddValue(PChar, "Cheats.CSM9.F10", 1);
+}
+
+string descF11 = "Сменить тип морского сражения (динамика или тактика)";
+void CalculateInfoDataF11()
+{
+	totalInfo = "#11 " + descF11;
 	CommonActions();
 	if (iArcadeSails == 1)
 	{
@@ -315,13 +380,13 @@ void CalculateInfoDataF4()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F4", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F11", 1);
 }
 
-string descF5 = "Вкл \ откл дозарядку огнестрельного оружия";
-void CalculateInfoDataF5()
+string descF12 = "Вкл \ откл дозарядку огнестрельного оружия";
+void CalculateInfoDataF12()
 {
-	totalInfo = "#5 " + descF5;
+	totalInfo = "#12 " + descF12;
 	CommonActions();
 	if (bRechargePistolOnLine == true)
 	{
@@ -340,13 +405,13 @@ void CalculateInfoDataF5()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F5", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F12", 1);
 }
 
-string descF6 = "Вкл \ откл раздел добычи";
-void CalculateInfoDataF6()
+string descF13 = "Вкл \ откл раздел добычи";
+void CalculateInfoDataF13()
 {
-	totalInfo = "#6 " + descF6;
+	totalInfo = "#13 " + descF13;
 	CommonActions();
 	if (bPartitionSet == true)
 	{
@@ -365,13 +430,13 @@ void CalculateInfoDataF6()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F6", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F13", 1);
 }
 
-string descF7 = "Вкл \ откл вероятность дождей";
-void CalculateInfoDataF7()
+string descF14 = "Вкл \ откл вероятность дождей";
+void CalculateInfoDataF14()
 {
-	totalInfo = "#7 " + descF7;
+	totalInfo = "#14 " + descF14;
 	CommonActions();
 	if (bRains == true)
 	{
@@ -390,13 +455,13 @@ void CalculateInfoDataF7()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F7", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F14", 1);
 }
 
-string descF8 = "Вкл \ откл возможность захвата колоний";
-void CalculateInfoDataF8()
+string descF15 = "Вкл \ откл возможность захвата колоний";
+void CalculateInfoDataF15()
 {
-	totalInfo = "#8 " + descF8;
+	totalInfo = "#15 " + descF15;
 	CommonActions();
 	bool bEnable = true;
 	if (CheckAttribute(pchar, "questTemp.Tieyasal_WinEnd") || bEnable)
@@ -424,13 +489,13 @@ void CalculateInfoDataF8()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F8", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F15", 1);
 }
 
-string descF9 = "Вкл \ откл режим Hardcore";
-void CalculateInfoDataF9()
+string descF16 = "Вкл \ откл режим Hardcore";
+void CalculateInfoDataF16()
 {
-	totalInfo = "#9 " + descF9;
+	totalInfo = "#16 " + descF16;
 	CommonActions();
 	if (bHardcoreGame == true)
 	{
@@ -449,14 +514,14 @@ void CalculateInfoDataF9()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F9", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F16", 1);
 }
 
 // Существенно рассширено Sticksъ -->
-string descF10 = "Изменить форму матросов на корабле ГГ (33 варианта)";
-void CalculateInfoDataF10()
+string descF17 = "Изменить форму матросов на корабле ГГ (33 варианта)";
+void CalculateInfoDataF17()
 {
-	totalInfo = "#10 " + descF10;
+	totalInfo = "#17 " + descF17;
 	CommonActions();
 	string message;
 	string sMSGe = "английская военная форма";
@@ -527,14 +592,56 @@ void CalculateInfoDataF10()
 	totalInfo += "Команде на корабле ГГ выдана " + message + "!" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F10", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F17", 1);
 }
 // <--
 
-string descF11 = "Вкл \ откл продажу кораблей на верфях с установленными орудиями";
-void CalculateInfoDataF11()
+string descF18 = "Изменить дату месяца на 1 день вперед";
+void CalculateInfoDataF18()
 {
-	totalInfo = "#11 " + descF11;
+	totalInfo = "#18 " + descF18;
+	CommonActions();
+	LAi_Fade("", "");
+	AddDataToCurrent(0, 0, 1);
+	PlaySound("Interface\sobitie_na_karte_001.wav");
+	Log_info("Дата текущего месяца изменена на 1 день вперед.");
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	ProcessCancelExit(); // Закликивать не дадим, во избежание багов
+	Statistic_AddValue(PChar, "Cheats.CSM9.F18", 1);
+}
+
+string descF19 = "Изменить дату месяца на 1 день назад";
+void CalculateInfoDataF19()
+{
+	totalInfo = "#19 " + descF19;
+	CommonActions();
+	bool bExit = false;
+	if (GetDataDay() != 1)
+	{
+		bExit = true;
+		LAi_Fade("", "");
+		AddDataToCurrent(0, 0, -1);
+		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
+		Log_info("Дата текущего месяца изменена на 1 день назад.");
+	}
+	else
+	{
+		iSND = PlaySound("_CheatSurfMenu_\WTF.wav");
+		Log_info("В 1-ый день месяца этого сделать нельзя...");
+		totalInfo += "В 1-ый день месяца этого сделать нельзя...";
+	}
+	PlaySound("Interface\sobitie_na_karte_001.wav");
+	totalInfo += back2totalInfo;
+	SetFormatedText("INFO_TEXT", totalInfo);
+	if (bExit) ProcessCancelExit(); // Закликивать не дадим, во избежание багов
+	Statistic_AddValue(PChar, "Cheats.CSM9.F19", 1);
+}
+
+string descF20 = "Вкл \ откл продажу кораблей на верфях с установленными орудиями";
+void CalculateInfoDataF20()
+{
+	totalInfo = "#20 " + descF20;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.AllCannonsShipyardShip"))
 	{
@@ -553,38 +660,13 @@ void CalculateInfoDataF11()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F11", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F20", 1);
 }
 
-string descF12 = "Вкл \ откл выход из строя орудий на корабле ГГ";
-void CalculateInfoDataF12()
+string descF21 = "Вкл \ откл генерацию взрывов и эпидемий на вражеских кораблях в море";
+void CalculateInfoDataF21()
 {
-	totalInfo = "#12 " + descF12;
-	CommonActions();
-	if (!CheckAttribute(pchar, "CSM.NoCannonsBoom"))
-	{
-		pchar.CSM.NoCannonsBoom = true;
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-		Log_info("Орудия на корабле ГГ не будут получать никаких повреждений!");
-		totalInfo += "Орудия на корабле ГГ не будут получать никаких повреждений!";
-	}
-	else
-	{
-		DeleteAttribute(pchar, "CSM.NoCannonsBoom");
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-		Log_info("Орудия на корабле ГГ будут повреждаться при стрельбе и от попаданий по ним вражеских снарядов.");
-		totalInfo += "Орудия на корабле ГГ будут повреждаться при стрельбе и от попаданий по ним вражеских снарядов.";
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F12", 1);
-}
-
-string descF13 = "Вкл \ откл генерацию взрывов и эпидемий на вражеских кораблях в море";
-void CalculateInfoDataF13()
-{
-	totalInfo = "#13 " + descF13;
+	totalInfo = "#21 " + descF21;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.ShipSituationsOff"))
 	{
@@ -605,40 +687,13 @@ void CalculateInfoDataF13()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F13", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F21", 1);
 }
 
-string descF14 = "Вкл \ откл возможность определения нациями своих флагманских кораблей";
-void CalculateInfoDataF14()
+string descF22 = "Вкл \ откл пропажу кораблей ГГ на приколе при разграблении колонии";
+void CalculateInfoDataF22()
 {
-	totalInfo = "#14 " + descF14;
-	CommonActions();
-	string sRefresh = "Изменение вступит в силу только после смены игровых суток.";
-	if (!CheckAttribute(pchar, "CSM.NoCheckAndIdentifyShips"))
-	{
-		pchar.CSM.NoCheckAndIdentifyShips = true;
-		iSND = PlaySound("_CheatSurfMenu_\Medic.wav");
-		Log_info("Нации не будут опознавать свои флагманские корабли и трубить тревогу!");
-		totalInfo += "Нации не будут опознавать свои флагманские корабли и трубить тревогу!" + NewStr() + sRefresh;
-	}
-	else
-	{
-		DeleteAttribute(pchar, "CSM.NoCheckAndIdentifyShips");
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-		Log_info("Нации опознают свои флагманские корабли и будут трубить тревогу.");
-		totalInfo += "Нации опознают свои флагманские корабли и будут трубить тревогу." + NewStr() + sRefresh;
-	}
-	PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F14", 1);
-}
-
-string descF15 = "Вкл \ откл пропажу кораблей ГГ на приколе при разграблении колонии";
-void CalculateInfoDataF15()
-{
-	totalInfo = "#15 " + descF15;
+	totalInfo = "#22 " + descF22;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.NotDeleteShipsInStock"))
 	{
@@ -656,46 +711,13 @@ void CalculateInfoDataF15()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F15", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F22", 1);
 }
 
-string descF16 = "Удалить \ добавить кораблю статус 'ворованный' (влияет на его стоимость)";
-void CalculateInfoDataF16()
+string descF23 = "Вкл \ откл проверку типа и кол-ва кораблей для захода на Остров Справедливости";
+void CalculateInfoDataF23()
 {
-	totalInfo = "#16 " + descF16;
-	CommonActions();
-	ref rMS = GetRealShip(sti(pchar.Ship.Type));
-	if (sti(Pchar.Ship.Type) != SHIP_NOTUSED)
-	{
-		if (rMS.Stolen == true)
-		{
-			rMS.Stolen = false;
-			iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-			totalInfo += "Корабль теперь не ворованный!";
-		}
-		else
-		{
-			rMS.Stolen = true;
-			iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-			totalInfo += "Корабль имеет статус 'ворованный'...";
-		}
-	}
-	else
-	{
-		Log_info("А где же Ваш корабль, капитан?!");
-		totalInfo += "А где же Ваш корабль, капитан?!";
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F16", 1);
-}
-
-string descF17 = "Вкл \ откл проверку типа и кол-ва кораблей для захода на Остров Справедливости";
-void CalculateInfoDataF17()
-{
-	totalInfo = "#17 " + descF17;
+	totalInfo = "#23 " + descF23;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.LSCFreeArrival"))
 	{
@@ -714,64 +736,14 @@ void CalculateInfoDataF17()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F17", 1);
-}
-
-string descF18 = "Вкл \ откл возможность заниматься контрабандой на любом корабле";
-void CalculateInfoDataF18()
-{
-	totalInfo = "#18 " + descF18;
-	CommonActions();
-	if (!CheckAttribute(pchar, "CSM.FreeSmuggling"))
-	{
-		pchar.CSM.FreeSmuggling = true;
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-		Log_info("Включена свободная контрабанда!");
-		Log_info("На сделку можно заявляться на любом корабле и хоть при полной эскадре!");
-		totalInfo += "Включена свободная контрабанда!" + NewStr() + "На сделку можно заявляться на любом корабле и хоть при полной эскадре!";
-	}
-	else
-	{
-		DeleteAttribute(pchar, "CSM.FreeSmuggling");
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-		Log_info("Контрабанда выставлена по умолчанию.");
-		totalInfo += "Контрабанда выставлена по умолчанию.";
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F18", 1);
-}
-
-string descF19 = "Освятить корабль";
-void CalculateInfoDataF19()
-{
-	totalInfo = "#19 " + descF19;
-	CommonActions();
-	if (!CheckAttribute(pchar, "GenQuest.Shipshine"))
-	{
-		pchar.GenQuest.Shipshine = true;
-		iSND = PlaySound("Voice\Russian\priest_bead.wav");
-		totalInfo += "Корабль был освящен! Число матросов для найма в тавернах увеличилось вдвое!";
-	}
-	else
-	{
-		DeleteAttribute(Pchar, "GenQuest.Shipshine");
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-		totalInfo += "Освящение утратило свою силу...";
-	}
-	PlaySound("Interface\sobitie_na_karte_001.wav");
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F19", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F23", 1);
 }
 
 // by Sticksъ -->
-string descF20 = "Изменить скорость перемещения всех кораблей на глобальной карте";
-void CalculateInfoDataF20()
+string descF24 = "Изменить скорость перемещения всех кораблей на глобальной карте";
+void CalculateInfoDataF24()
 {
-	totalInfo = "#20 " + descF20;
+	totalInfo = "#24 " + descF24;
 	CommonActions();
     string message = "Скорость всех корабликов на глобальной карте: ";
 
@@ -796,14 +768,14 @@ void CalculateInfoDataF20()
 	totalInfo += back2totalInfo;
     SetFormatedText("INFO_TEXT", totalInfo);
     // ProcessCancelExit();
-    Statistic_AddValue(PChar, "Cheats.CSM9.F20", 1);
+    Statistic_AddValue(PChar, "Cheats.CSM9.F24", 1);
 }
 // by Sticksъ <--
 
-string descF21 = "Уменьшить \ нормализировать скорость течения времени на глобальной карте";
-void CalculateInfoDataF21()
+string descF25 = "Уменьшить \ нормализировать скорость течения времени на глобальной карте";
+void CalculateInfoDataF25()
 {
-	totalInfo = "#21 " + descF21;
+	totalInfo = "#25 " + descF25;
 	CommonActions();
 	string sDef = " (норма 1.5)";
 	string sReduced = "Скорость течения времени на глобальной карте уменьшена и равна: ";
@@ -839,13 +811,13 @@ void CalculateInfoDataF21()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F21", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F25", 1);
 }
 
-string descF22 = "Вкл \ откл 'пустую глобальную карту' (кроме квестовых кораблей)";
-void CalculateInfoDataF22()
+string descF26 = "Вкл \ откл ''пустую глобальную карту'' (кроме квестовых кораблей)";
+void CalculateInfoDataF26()
 {
-	totalInfo = "#22 " + descF22;
+	totalInfo = "#26 " + descF26;
 	CommonActions();
 	string sLogA = "Все простые корабли, лодки, бочонки и шторм на глобальной карте отключены!";
 	string sLogB = "Состояние глобальной карты приведено в исходное положение.";
@@ -871,13 +843,13 @@ void CalculateInfoDataF22()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F22", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F26", 1);
 }
 
-string descF23 = "Вкл \ откл враждебные корабли и шторм на глобальной карте";
-void CalculateInfoDataF23()
+string descF27 = "Вкл \ откл враждебные корабли и шторм на глобальной карте";
+void CalculateInfoDataF27()
 {
-	totalInfo = "#23 " + descF23;
+	totalInfo = "#27 " + descF27;
 	CommonActions();
 	string sLog = "Враждебные корабли и шторм на глобальной карте ";
 	string sLogQ = "Квестовых кораблей это не касается.";
@@ -910,13 +882,13 @@ void CalculateInfoDataF23()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F23", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F27", 1);
 }
 
-string descF24 = "Увеличить \ по умолчанию дальность видимости кораблей на глобальной карте";
-void CalculateInfoDataF24()
+string descF28 = "Увеличить \ по умолчанию дальность видимости кораблей на глобальной карте";
+void CalculateInfoDataF28()
 {
-	totalInfo = "#24 " + descF24;
+	totalInfo = "#28 " + descF28;
 	CommonActions();
 	string sLog = "Дальность видимости всех кораблей на глобальной карте ";
 	if (!CheckAttribute(pchar, "CSM.MapShipDistView"))
@@ -942,13 +914,13 @@ void CalculateInfoDataF24()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F24", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F28", 1);
 }
 
-string descF25 = "Узнать текущие цены на товары во всех магазинах архипелага";
-void CalculateInfoDataF25()
+string descF29 = "Узнать текущие цены на товары во всех магазинах архипелага";
+void CalculateInfoDataF29()
 {
-	totalInfo = "#25 " + descF25;
+	totalInfo = "#29 " + descF29;
 	CommonActions();
 	bBettaTestMode = true;
 	int iC;
@@ -977,13 +949,13 @@ void CalculateInfoDataF25()
 	totalInfo += "Информация по ценам на товары во всех магазинах архипелага обновлена!" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F25", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F29", 1);
 }
 
-string descF26 = "Вкл \ откл 100% шанс встретить в таверне торговца картой сокровищ";
-void CalculateInfoDataF26()
+string descF30 = "Вкл \ откл 100% шанс встретить в таверне торговца картой сокровищ";
+void CalculateInfoDataF30()
 {
-	totalInfo = "#26 " + descF26;
+	totalInfo = "#30 " + descF30;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.TreasureMapTrader"))
 	{
@@ -1001,13 +973,13 @@ void CalculateInfoDataF26()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F26", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F30", 1);
 }
 
-string descF27 = "Вкл \ откл сбрасывание музыки при смене одинаковых типов локаций в джунглях";
-void CalculateInfoDataF27()
+string descF31 = "Вкл \ откл сбрасывание музыки при смене одинаковых типов локаций в джунглях";
+void CalculateInfoDataF31()
 {
-	totalInfo = "#27 " + descF27;
+	totalInfo = "#31 " + descF31;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.JungleContinuousMusic"))
 	{
@@ -1026,38 +998,13 @@ void CalculateInfoDataF27()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F27", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F31", 1);
 }
 
-string descF28 = "Вкл \ откл быстрый переход во вражеских колониях";
-void CalculateInfoDataF28()
+string descF32 = "Вкл \ откл охотников за головами";
+void CalculateInfoDataF32()
 {
-	totalInfo = "#28 " + descF28;
-	CommonActions();
-	if (CheckAttribute(pchar, "CSM.FastTravelEnemy"))
-	{
-		DeleteAttribute(pchar, "CSM.FastTravelEnemy");
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-		Log_info("Быстрый переход во вражеских поселениях запрещен...");
-		totalInfo += "Быстрый переход во вражеских поселениях запрещен...";
-	}
-	else
-	{
-		pchar.CSM.FastTravelEnemy = true;
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-		Log_info("Разрешен быстрый переход во всех вражеских поселениях!");
-		totalInfo += "Разрешен быстрый переход во всех вражеских поселениях!";
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F28", 1);
-}
-
-string descF29 = "Вкл \ откл охотников за головами";
-void CalculateInfoDataF29()
-{
-	totalInfo = "#29 " + descF29;
+	totalInfo = "#32 " + descF32;
 	CommonActions();
 	if (!CheckAttribute(pchar, "GenQuest.HunterLongPause"))
 	{
@@ -1076,13 +1023,13 @@ void CalculateInfoDataF29()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F29", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F32", 1);
 }
 
-string descF30 = "Убрать любой таймер с экрана (по квестам и т.д.)";
-void CalculateInfoDataF30()
+string descF33 = "Убрать любой таймер с экрана (по квестам и т.д.)";
+void CalculateInfoDataF33()
 {
-	totalInfo = "#30 " + descF30;
+	totalInfo = "#33 " + descF33;
 	CommonActions();
 	if (CheckAttribute(pchar, "showTimer"))
 	{
@@ -1100,13 +1047,13 @@ void CalculateInfoDataF30()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F30", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F33", 1);
 }
 
-string descF31 = "Вкл \ откл у лоточников все предметы в продаже";
-void CalculateInfoDataF31()
+string descF34 = "Вкл \ откл у лоточников все предметы в продаже";
+void CalculateInfoDataF34()
 {
-	totalInfo = "#31 " + descF31;
+	totalInfo = "#34 " + descF34;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.AllItemsInTrade"))
 	{
@@ -1124,13 +1071,13 @@ void CalculateInfoDataF31()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F31", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F34", 1);
 }
 
-string descF32 = "Вкл \ откл все корабли в продаже на верфях";
-void CalculateInfoDataF32()
+string descF35 = "Вкл \ откл все корабли в продаже на верфях";
+void CalculateInfoDataF35()
 {
-	totalInfo = "#32 " + descF32;
+	totalInfo = "#35 " + descF35;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.AllShipsInTrade"))
 	{
@@ -1148,13 +1095,13 @@ void CalculateInfoDataF32()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F32", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F35", 1);
 }
 
-string descF33 = "Вкл \ откл отображение счетчика активированных опций в ЧМ";
-void CalculateInfoDataF33()
+string descF36 = "Вкл \ откл отображение счетчика активированных опций в ЧМ";
+void CalculateInfoDataF36()
 {
-	totalInfo = "#33 " + descF33;
+	totalInfo = "#36 " + descF36;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.CMStatsOff"))
 	{
@@ -1172,14 +1119,14 @@ void CalculateInfoDataF33()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F33", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F36", 1);
 }
 
 // by Sticksъ -->
-string descF34 = "Изменить направление ветра на море (сбрасывается каждый игровой час)";
-void CalculateInfoDataF34()
+string descF37 = "Изменить направление ветра на море (сбрасывается каждый игровой час)";
+void CalculateInfoDataF37()
 {
-    totalInfo = "#34 " + descF34;
+    totalInfo = "#37 " + descF37;
 	CommonActions();
 	if (!IsEntity(&worldMap))
 	{
@@ -1267,14 +1214,14 @@ void CalculateInfoDataF34()
 	totalInfo += back2totalInfo;
     SetFormatedText("INFO_TEXT", totalInfo);
     // ProcessCancelExit();
-    Statistic_AddValue(PChar, "Cheats.CSM9.F34", 1);
+    Statistic_AddValue(PChar, "Cheats.CSM9.F37", 1);
 }
 // by Sticksъ <--
 
-string descF35 = "Сильный ветер на море (сбрасывается каждый игровой час)";
-void CalculateInfoDataF35()
+string descF38 = "Сильный ветер на море (сбрасывается каждый игровой час)";
+void CalculateInfoDataF38()
 {
-	totalInfo = "#35 " + descF35;
+	totalInfo = "#38 " + descF38;
 	CommonActions();
 	if (!IsEntity(&worldMap))
 	{
@@ -1297,23 +1244,23 @@ void CalculateInfoDataF35()
 	Statistic_AddValue(PChar, "Cheats.CSM9.F35", 1);
 }
 
-string descF36 = "Отключить партиклы в локации (эффекты огня, дыма и т.д., включатся после перезагрузки)";
-void CalculateInfoDataF36()
+string descF39 = "Отключить партиклы в локации (эффекты огня, дыма и т.д., включатся после перезагрузки)";
+void CalculateInfoDataF39()
 {
-	totalInfo = "#36 " + descF36;
+	totalInfo = "#39 " + descF39;
 	CommonActions();
 	PauseParticles(true);
 	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
 	totalInfo += "Партиклы в текущей локации отключены!" + NewStr() + "Они снова заработают со сменой локации." + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F36", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F39", 1);
 }
 
-string descF37 = "Открыть все острова, выход в море, быстрые переходы и т.д. (ИСПОЛЬЗОВАТЬ В КРАЙНИХ СЛУЧАЯХ!)";
-void CalculateInfoDataF37()
+string descF40 = "Открыть все острова, выход в море, быстрые переходы и т.д. (ИСПОЛЬЗОВАТЬ В КРАЙНИХ СЛУЧАЯХ!)";
+void CalculateInfoDataF40()
 {
-	totalInfo = "#37 " + descF37;
+	totalInfo = "#40 " + descF40;
 	CommonActions();
 	bDisableFastReload = false;
 	bQuestDisableMapEnter = false;
@@ -1337,13 +1284,13 @@ void CalculateInfoDataF37()
 	iSND = PlaySound("_CheatSurfMenu_\ReputationGood.wav");
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F37", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F40", 1);
 }
 
-string descF38 = "Вкл \ откл удаление трупов только при перезагрузке локаций";
-void CalculateInfoDataF38()
+string descF41 = "Вкл \ откл удаление трупов только при перезагрузке локаций";
+void CalculateInfoDataF41()
 {
-	totalInfo = "#38 " + descF38;
+	totalInfo = "#41 " + descF41;
 	CommonActions();
 
 	if (!CheckAttribute(pchar, "CSM.DontClearDead"))
@@ -1362,39 +1309,39 @@ void CalculateInfoDataF38()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F38", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F41", 1);
 }
 
-string descF39 = "Сменить погоду на следующую (+1 час)";
-void CalculateInfoDataF39()
+string descF42 = "Сменить погоду на следующую (+1 час)";
+void CalculateInfoDataF42()
 {
-	totalInfo = "#39 " + descF39;
+	totalInfo = "#42 " + descF42;
 	CommonActions();
 	CSM_LoadNextWeather();
 	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
 	totalInfo += "Погода изменена!" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F39", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F42", 1);
 }
 
-string descF40 = "Сменить погоду на предыдущую (-1 час)";
-void CalculateInfoDataF40()
+string descF43 = "Сменить погоду на предыдущую (-1 час)";
+void CalculateInfoDataF43()
 {
-	totalInfo = "#40 " + descF40;
+	totalInfo = "#43 " + descF43;
 	CommonActions();
 	CSM_LoadPrevWeather();
 	iSND = PlaySound("Interface\sobitie_na_karte_001.wav");
 	totalInfo += "Погода изменена!" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F40", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F43", 1);
 }
 
-string descF41 = "Сброс счетчика убитых пиратов в поселениях";
-void CalculateInfoDataF41()
+string descF44 = "Сброс счетчика убитых пиратов в поселениях";
+void CalculateInfoDataF44()
 {
-	totalInfo = "#41 " + descF41;
+	totalInfo = "#44 " + descF44;
 	CommonActions();
 	if (sti(pchar.GenQuest.Piratekill) > 0)
 	{
@@ -1412,13 +1359,13 @@ void CalculateInfoDataF41()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F41", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F44", 1);
 }
 
-string descF42 = "Пустить Золотой флот";
-void CalculateInfoDataF42()
+string descF45 = "Пустить Золотой флот";
+void CalculateInfoDataF45()
 {
-	totalInfo = "#42 " + descF42;
+	totalInfo = "#45 " + descF45;
 	CommonActions();
 	isGoldFleet = true;
 	GoldMonth = XI_ConvertString("target_month_" + GetAddingDataMonth(0, 0, 0));
@@ -1430,13 +1377,13 @@ void CalculateInfoDataF42()
 	totalInfo += "Золотой флот вышел из Порто Белло (Мэйн) и взял курс на Гавану (Куба)!" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F42", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F45", 1);
 }
 
-string descF43 = "Вернуть камеру к герою, если после диалога она за кого-то 'зацепилась'";
-void CalculateInfoDataF43()
+string descF46 = "Вернуть камеру к герою, если после диалога она за кого-то ''зацепилась''";
+void CalculateInfoDataF46()
 {
-	totalInfo = "#43 " + descF43;
+	totalInfo = "#46 " + descF46;
 	CommonActions();
 	if (CheckAttribute(pchar, "chr_ai.type") && pchar.chr_ai.type == LAI_TYPE_PLAYER)
 	{
@@ -1453,13 +1400,13 @@ void CalculateInfoDataF43()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F43", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F46", 1);
 }
 
-string descF44 = "Убрать \ поставить корабли охраны у Тортуги";
-void CalculateInfoDataF44()
+string descF47 = "Убрать \ поставить корабли охраны у Тортуги";
+void CalculateInfoDataF47()
 {
-	totalInfo = "#44 " + descF44;
+	totalInfo = "#47 " + descF47;
 	CommonActions();
 	ref rXep;
 	string sLogA = "Изменение вступит в силу при смене суток.";
@@ -1493,13 +1440,13 @@ void CalculateInfoDataF44()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F44", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F47", 1);
 }
 
-string descF45 = "Показывать \ не показывать логи по квестам, получению опыта и развитию свободных кэпов";
-void CalculateInfoDataF45()
+string descF48 = "Показывать \ не показывать логи по квестам, получению опыта и развитию свободных кэпов";
+void CalculateInfoDataF48()
 {
-	totalInfo = "#45 " + descF45;
+	totalInfo = "#48 " + descF48;
 	CommonActions();
 	if (!bExpLogShow || !bPGGLogShow || !bQuestLogShow)
 	{
@@ -1517,13 +1464,13 @@ void CalculateInfoDataF45()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F45", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F48", 1);
 }
 
-string descF46 = "Вкл \ откл альтернативное море";
-void CalculateInfoDataF46()
+string descF49 = "Вкл \ откл альтернативное море";
+void CalculateInfoDataF49()
 {
-	totalInfo = "#46 " + descF46;
+	totalInfo = "#49 " + descF49;
 	CommonActions();
 
 	string message = "Вариант моря изменен на ";
@@ -1565,37 +1512,13 @@ void CalculateInfoDataF46()
 	totalInfo += message + "\n\nАвтор: Sticksъ" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F46", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F49", 1);
 }
 
-string descF47 = "Вкл \ откл ускорение и замедление времени всегда и везде";
-void CalculateInfoDataF47()
+string descF50 = "Вкл \ откл больше бандитов, индейцев в джунглях, драчунов в тавернах и т.д.";
+void CalculateInfoDataF50()
 {
-	totalInfo = "#47 " + descF47;
-	CommonActions();
-	if (!CheckAttribute(pchar, "CSM.TimeScaleEnable"))
-	{
-		pchar.CSM.TimeScaleEnable = true;
-		totalInfo += "Ускорение и замедление времени работает всегда и везде!";
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-	}
-	else
-	{
-		DeleteAttribute(pchar, "CSM.TimeScaleEnable");
-		SetTimeScale(1.0);
-		totalInfo += "Возможность ускорения и замедления времени выставлена по умолчанию.";
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F47", 1);
-}
-
-string descF48 = "Вкл \ откл больше бандитов, индейцев в джунглях, драчунов в тавернах и т.д.";
-void CalculateInfoDataF48()
-{
-	totalInfo = "#48 " + descF48;
+	totalInfo = "#50 " + descF50;
 	CommonActions();
 
 	string message = "";
@@ -1616,37 +1539,13 @@ void CalculateInfoDataF48()
 	totalInfo += message + NewStr() + "Автор: Sticksъ" + back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F48", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F50", 1);
 }
 
-string descF49 = "Вкл \ откл ускорение времени всегда и везде";
-void CalculateInfoDataF49()
+string descF51 = "Вкл \ откл дипломатических агентов в пиратских тавернах";
+void CalculateInfoDataF51()
 {
-	totalInfo = "#49 " + descF49;
-	CommonActions();
-	if (!CheckAttribute(pchar, "CSM.TimeScaleEnable"))
-	{
-		pchar.CSM.TimeScaleEnable = true;
-		totalInfo += "Ускорение и замедление времени работает всегда и везде!";
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-	}
-	else
-	{
-		DeleteAttribute(pchar, "CSM.TimeScaleEnable");
-		SetTimeScale(1.0);
-		totalInfo += "Возможность ускорения и замедления времени выставлена по умолчанию.";
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F49", 1);
-}
-
-string descF50 = "Вкл \ откл дипломатических агентов в пиратских тавернах";
-void CalculateInfoDataF50()
-{
-	totalInfo = "#50 " + descF50;
+	totalInfo = "#51 " + descF51;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.RelationAgent"))
 	{
@@ -1663,13 +1562,13 @@ void CalculateInfoDataF50()
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F50", 1);
+	Statistic_AddValue(PChar, "Cheats.CSM9.F51", 1);
 }
 
-string descF51 = "Вкл \ откл торговлю личными вещами в магазинах пиратов";
-void CalculateInfoDataF51()
+string descF52 = "Вкл \ откл торговлю личными вещами в магазинах пиратов";
+void CalculateInfoDataF52()
 {
-	totalInfo = "#51 " + descF51;
+	totalInfo = "#52 " + descF52;
 	CommonActions();
 	if (!CheckAttribute(pchar, "CSM.Merchants"))
 	{
@@ -1683,38 +1582,6 @@ void CalculateInfoDataF51()
 		totalInfo += "В магазинах пиратов нельзя будет продать личные вещи.";
 		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
 	}
-	totalInfo += back2totalInfo;
-	SetFormatedText("INFO_TEXT", totalInfo);
-	// ProcessCancelExit();
-	Statistic_AddValue(PChar, "Cheats.CSM9.F51", 1);
-}
-
-string descF52 = "Вкл \ откл расталкиватель толпы (3 варианта)";
-void CalculateInfoDataF52()
-{
-	totalInfo = "#52 " + descF52;
-	CommonActions();
-
-	SM_PusherSwitch();
-
-	if (CheckAttribute(pchar, "CSM.CrowdPusher"))
-	{
-		switch(sti(pchar.CSM.CrowdPusher))
-		{
-			case 1: totalInfo += "Толкач толпы: слабый"; break;
-			case 2: totalInfo += "Толкач толпы: умеренный"; break;
-			case 3: totalInfo += "Толкач толпы: усиленный"; break;
-		}
-		totalInfo += "\n\nОтпихивает прочь дружественные или нейтральные НПС, мешающие перемещению ГГ (прочь с дороги)\nБолее плавную работу обеспечивает слабый и умеренный режим.\nУсиленный эффективнее работает с большими толпами.";
-		totalInfo += "\n\nВражеские, квестовые и некоторые особые персонажи (грузчики, бомжи, спящие и пр) не отпихиваются.";
-		iSND = PlaySound("_CheatSurfMenu_\Ahha.wav");
-	}
-	else
-	{
-		totalInfo += "Расталкиватель толпы отключен!";
-		iSND = PlaySound("_CheatSurfMenu_\Default.wav");
-	}
-
 	totalInfo += back2totalInfo;
 	SetFormatedText("INFO_TEXT", totalInfo);
 	// ProcessCancelExit();
