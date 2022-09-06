@@ -368,7 +368,7 @@ void LAi_ApplyCharacterDamage(aref chr, int dmg, string DamageType)
         return;
     }
 	//Напишем о нанесённом повреждении
-	if(bDrawBars) SendMessage(chr, "lfff", MSG_CHARACTER_VIEWDAMAGE, dmg, MakeFloat(MakeInt(hp)), MakeFloat(MakeInt(maxhp)));
+	SendMessage(chr, "lfff", MSG_CHARACTER_VIEWDAMAGE, dmg, MakeFloat(MakeInt(hp)), MakeFloat(MakeInt(maxhp)));
 }
 
 //Убить персонажа, если закончились hp

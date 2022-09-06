@@ -356,7 +356,7 @@ void LAi_KillCharacter(aref chr)
 {
 	int random_m = rand(11);
 	string old;
-	if(random_m > 8){
+	if(random_m > 4){
 		chr.chr_ai.hp = "0";
 		
 		if(CheckAttribute(chr, "chr_ai.immortal"))

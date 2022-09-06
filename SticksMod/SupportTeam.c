@@ -56,11 +56,16 @@ void SM_SupportTeamOnLoad()
 
 // Генерация и привязка заданного числа нпс к гг (n - солдаты, m - мушкетеры)
 void SM_AddSupportTeam(int n, int m)
-{
+{	
 	if (SM_totalFighters)
 		SM_RemoveSupportTeamImmediately(false); // на всякий случай, если остались гуляки от предыдущего отряда
 	
+	// количество до сбора отряда
+	// SM_ShipCrewBeforeBoarding = GetCrewQuantity(pchar);
+	
 	SM_totalFighters = n + m;
+	
+	AddCharacterCrew(pchar, -SM_totalFighters);
 	
 	int crewType;
 	string  smodel;
@@ -449,14 +454,14 @@ void SM_RemoveSupportTeamImmediately(bool removeAttribute)
 		SM_ShipCrewBeforeBoarding = 0;
 	}
 	
-	for (i = 1; i < SM_totalFighters; i++)
+	for (i = 0; i < SM_totalFighters; i++)
 	{
 		sld = characterFromId("SM_Support_sold_"+ i);
 		if (LAi_GetCharacterHP(sld) > 1)
 		{
 			ChangeCharacterAddress(sld, "none", "");
 			if (GetCrewQuantity(pchar) < GetMaxCrewQuantity(pchar)) // если человек жив, возвращаем его в команду, при этом проверяем на свободное место...
-				AddCharacterCrew(pchar, 0);
+				AddCharacterCrew(pchar, 1);
 		}
 	}
 	

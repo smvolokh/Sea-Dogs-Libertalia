@@ -198,7 +198,7 @@ void LAi_CharacterAttack()
 	{
 		pchar.combo.target = sti(enemy.index);
 	}   */
-	bool Silence = false;
+	//bool Silence = false;
 
 	if(isBlocked == true)  // to_do
 			{
@@ -216,12 +216,13 @@ void LAi_CharacterAttack()
 		}
 	}
 	// Скрытные атаки (New Abilities 0.4.0) (27.10.17)
-	if(!LAi_grp_alarmactive && sti(attack.index) == GetMainCharacterIndex()) Silence = CharacterSeeMainCharacter(enemy);
+	//if(!LAi_grp_alarmactive && sti(attack.index) == GetMainCharacterIndex()) Silence = CharacterSeeMainCharacter(enemy);
 
 	//Начисление повреждений
-	LAi_ApplyCharacterAttackDamage(attack, enemy, attackType, isBlocked, Silence);
+	LAi_ApplyCharacterAttackDamage(attack, enemy, attackType, isBlocked);
 	
 	// Если атаку заметили другие персонажи
+	/*
 	if(Silence)
 	{
 		float radius = 10.0 + (10.0 * (1.0 - makefloat(GetSummonSkillFromName(attack, SKILL_SNEAK)) / 100.0)); // Радиус от скрытности
@@ -237,10 +238,12 @@ void LAi_CharacterAttack()
 			Log_Info("Кто-то заметил нападение!");
 		}
 	}
+	*/
 	//Реакция груп на атаку
-	if(!Silence) LAi_group_Attack(attack, enemy);
+	//if(!Silence) 
+	LAi_group_Attack(attack, enemy);
 	//Начисление повреждений
-	LAi_ApplyCharacterAttackDamage(attack, enemy, attackType, isBlocked, Silence);
+	LAi_ApplyCharacterAttackDamage(attack, enemy, attackType, isBlocked);
 	//Обновим цель сразу
 	LAi_group_UpdateTargets(enemy);
 	string func = enemy.chr_ai.type;

@@ -765,7 +765,7 @@ float LAi_GunReloadSpeed(aref chr)
 //--------------------------------------------------------------------------------
 
 //Начисление повреждений при атаке мечём
-void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, bool isBlocked, bool Silence)
+void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, bool isBlocked)
 {
 	//Если неубиваемый, то нетрогаем его
 	if(CheckAttribute(enemy, "chr_ai.immortal"))
@@ -1073,6 +1073,7 @@ void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, 
                                       LAi_ClawBeliar(attack, enemy, 10+rand(15));
 	                   enemy.chr_ai.Beliarfire = 1;
 	                   }
+		/*
 		if(Silence)
 		{
 		float silencemodificator = 5.0 + (10.0 * (makefloat(GetSummonSkillFromName(attack, SKILL_SNEAK)) / 100.0));
@@ -1081,6 +1082,7 @@ void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, 
 			AddCharacterExpToSkill(attack, SKILL_SNEAK, makeint(stf(enemy.rank)*2.5));
 			Log_Info("Скрытная атака!");
 		}
+		*/
 		//Проверим на смерть
 		LAi_CheckKillCharacter(enemy);
 		//проверим на отравление
@@ -1122,7 +1124,7 @@ void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, 
         // boal statistic info 17.12.2003 -->
         Statistic_KillChar(attack, enemy, "_s");
         // boal statistic info 17.12.2003 <--
-       	LAi_SetResultOfDeath(attack, enemy, isSetBalde, Silence);
+       	LAi_SetResultOfDeath(attack, enemy, isSetBalde);
 
 //Лечение заговоренным оружием Пират Либерталии 30.07.20. идея из Корсары: New abilities, но практически полностью переделана.
 		if (GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "knife_01" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "blade_32" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "blade48" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "newblade29" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "blade_33" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "blade_36" || GetCharacterEquipByGroup(attack, BLADE_ITEM_TYPE) == "blade300" && enemy.sex == "skeleton")
@@ -1155,9 +1157,9 @@ void LAi_ApplyCharacterAttackDamage(aref attack, aref enemy, string attackType, 
 	
 }
 //boal 19.09.05 -->
-void LAi_SetResultOfDeath(ref attack, ref enemy, bool isSetBalde, bool Silence)
+void LAi_SetResultOfDeath(ref attack, ref enemy, bool isSetBalde)
 {
-    if (sti(attack.index) == GetMainCharacterIndex() && !Silence)
+    if (sti(attack.index) == GetMainCharacterIndex())
     {
 		if (CheckCharacterItem(pchar, "HolTradeLicence") && CheckAttribute(enemy, "City") && sti(enemy.nation) == HOLLAND) // Jason: изъятие лицензии
 		{
@@ -1335,7 +1337,7 @@ void LAi_ApplyCharacterFireDamage(aref attack, aref enemy, float kDist)
         Statistic_KillChar(attack, enemy, "_g");
         // boal statistic info 17.12.2003 <--        
         //Начислим за убийство
-  	LAi_SetResultOfDeath(attack, enemy, isSetBalde, false);
+  	LAi_SetResultOfDeath(attack, enemy, isSetBalde);
 
 	}
 	if(!isSetBalde)
